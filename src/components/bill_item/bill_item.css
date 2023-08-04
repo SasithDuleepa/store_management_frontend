@@ -1,0 +1,38 @@
+
+.bill_item_container{
+    height: 30px;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    margin: 5px 5% 5px 5%;
+    border-radius: 5px;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bill_item_name{
+    font-size: 12px;
+    font-weight: 600;
+}
+.bill_item_price{
+    font-size: 12px;
+    font-weight: 600
+}
+.bill_item_quantity{
+    font-size: 12px;
+    font-weight: 600
+}
+.bill_item_price{
+    font-size: 12px;
+    font-weight: 600
+}
+.bill_item_minus_img{
+    width: 20px;
+    padding: 2px;
+}
+
+.bill_item_more_img{
+    width: 20px;
+    padding: 2px;
+}

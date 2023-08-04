@@ -1,0 +1,93 @@
+.sidebar{
+    background-color: black;
+    /* border-right: 1px solid white; */
+    width: 180px;
+    height: 100vh;
+    z-index: 2;
+    position: fixed;
+    margin-top: -20px;
+}
+.sidebar_item_company{
+    height: 50px;
+}
+.sidebar_company_text{
+    color: aliceblue;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 500;
+}
+.sidebar_item{
+    border: 1px solid white;
+    margin-top: 10px;
+}
+.nav_link{
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px;
+    
+}
+
+
+
+
+
+
+
+.sidebr_bottom{
+    position: relative;
+    top: 30%;
+}
+.sidebar_bottom_text{
+    color: aliceblue;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* dropdown */
+.sidebar-setting{
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 1px;
+    margin-left: 10px;
+    
+}
+.nav_link_dropdown {
+    display: block;
+    color: aliceblue;
+    position: relative;
+    
+}
+.nav_link_dropdown_list {
+    display: none;
+    margin-top: -20px;
+    position: absolute;
+    width: 160px;
+    top: 100%;
+    left: 0;
+    background-color:transparent;
+    padding: 10px;
+    opacity: 0; /* Start with 0 opacity to make it fade in */
+    transition: opacity 0.5s ease; /* Set the transition effect */
+    
+}
+
+
+.nav_link_dropdown:hover .nav_link_dropdown_list {
+    display: block;
+    opacity: 1;
+    position: relative;
+}
+
+.setting_dropdown_list{
+    list-style: none;
+    
+}
+.setting_dropdown_list_item{
+    font-style: normal;
+    text-decoration: none;
+    font-size: 20px;
+    color: aliceblue;
+}
