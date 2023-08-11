@@ -3,7 +3,7 @@ import './catergory.css'
 
 import Curry from '../icons/curry.png'
 
-export default function Catergory() {
+export default function Catergory_() {
   return (
     <div className='category'>
         <div className='category-icon'>

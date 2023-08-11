@@ -1,3 +1,184 @@
-.catergory_title{
-    color: aliceblue;
+
+.setting-catergory-parent{
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 0.5fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    padding: 10px;
+    margin-top: 20px;
+    }
+    
+    .setting-catergory-div1 { 
+        grid-area: 1 / 1 / 6 / 4;
+        background-color: rgba(250, 235, 215, 0.167);
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+     }
+    .setting-catergory-div2 { 
+        grid-area: 1 / 4 / 6 / 6; 
+        background-color: rgba(250, 235, 215, 0.167);
+        display: flex;
+        flex-direction: column;
+        
+        align-items: center;
+}
+
+    .setting-catergory-available-title{
+        text-align: center;
+        color: white;
+    }
+    .setting-catergory-available-div{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+
+
+
+
+
+
+    .setting-catergory-add-div{
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .setting-catergory-add-title{
+        text-align: center;
+        color: white;
+    }
+    .setting-catergory-name-input{
+        background-color: transparent;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 10px;
+        width: 250px;
+        height: 23px;
+        margin-top: 3px;
+    }
+    input[type=text] {
+       
+       
+        
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+}
+
+input[type=text]:focus {
+  background: #ffffff;
+
+}
+    
+
+    .setting-catergory-add-image-div{
+        margin-top: 20px;
+      
+    }
+    .setting-catergory-add-name-label{
+        font-size: 18px;
+        font-weight: 500;
+        color: white;
+    }
+    .setting-catergory-add-image-label{
+        font-size: 18px;
+        font-weight: 500;
+        color: white;
+
+    }
+
+    .setting-catergory-file-input {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+      
+      .custom-file-input-label {
+        display: block;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+
+    .setting-catergory-file-input{
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 10px;
+        margin-top: 3px;
+    }
+    input[type=file] {
+      
+        color: #ffffff;
+        
+}
+    input[type=file]::file-selector-button {
+        margin-right: 20px;
+        border: none;
+        background: #ffffff;
+        padding: 5px 10px;
+        border-radius: 10px;
+        color: #040404;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #070707;
+  color: #ffffff;
+}
+    .setting-catergory-add-button{
+        appearance: none;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  
+
+  
+  outline: none;
+  padding: 10px 10px;
+  margin: 50px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 40%;
+  will-change: transform;
+
+    }
+    
+
+
+
+.setting-catergory-add-button:disabled {
+  pointer-events: none;
+}
+
+.setting-catergory-add-button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.setting-catergory-add-button:active {
+  box-shadow: none;
+  transform: translateY(0);
 }

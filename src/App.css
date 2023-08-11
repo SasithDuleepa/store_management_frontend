@@ -5,3 +5,7 @@ body{
 .app{
     margin: 0px 0px 60px 180px;
 }
+
+.root{
+    --background: rgb(218, 255, 251);
+}

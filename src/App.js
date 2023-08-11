@@ -8,6 +8,7 @@ import Footer from './components/footer/footer';
 
 import Pos from './pos/pos';
 import Setting from './pages/setting/setting';
+import Catergory from './pages/setting/catergory/catergory';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" component={Pos} />
           <Route exact path="/sale" component={Pos} />
           <Route exact path="/setting" component={Setting} />
+          <Route exact path="/catergory" component={Catergory}/>
         </Switch>
     </Router>
       
