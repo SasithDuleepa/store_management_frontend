@@ -1,8 +1,7 @@
 .sidebar{
-    background-color: black;
-    /* border-right: 1px solid white; */
-    width: 180px;
-    height: 100vh;
+    background-color:black;
+    width: 170px;
+    height: 120vh;
     z-index: 2;
     position: fixed;
     margin-top: -20px;
@@ -18,8 +17,9 @@
     font-weight: 500;
 }
 .sidebar_item{
-    border: 1px solid white;
-    margin-top: 10px;
+    width: 90%;
+    border: 0.6px solid rgba(255, 255, 255, 0.233);
+    margin: 10px auto auto 5px;
 }
 .nav_link{
     color: aliceblue;

@@ -2,7 +2,7 @@ import React from 'react'
 import './item.css'
 import dhal from './../icons/Dhall.jpg'
 
-export default function Item() {
+export default function Item(props) {
   return (
     
         <div className='item-container_'>
@@ -10,9 +10,9 @@ export default function Item() {
                 <img className='item-img' src={dhal} alt="" />
             </div>
             <div className='item-info'>
-                <h1 className='item-name'>Dhal 500g</h1>
-                <p className='item-price'>Rs.500</p>
-                <p className='item-available'>available in 2 pcs</p>
+                <h1 className='item-name'>{props.itemName}</h1>
+                <p className='item-price'>{props.price}</p>
+                <p className='item-available'>available {props.qty}</p>
             </div>
            
 

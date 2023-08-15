@@ -1,0 +1,50 @@
+.setting-item-parent{
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 0.5fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    padding: 10px;
+    margin: 10px 10px 10px auto;
+    }
+    
+    .setting-item-div1 { 
+        grid-area: 1 / 1 / 6 / 4;
+        background-color:var(--container-color);
+        border-radius: var(--container-border-raidius);
+        padding: 10px;
+        
+     }
+    .setting-item-div2 { 
+        grid-area: 1 / 4 / 6 / 6; 
+        background-color: rgba(250, 235, 215, 0.167);
+        background-color:var(--container-color);
+        border-radius: var(--container-border-raidius);
+        display: flex;
+        flex-direction: column;
+        margin-right: 0px;
+        align-items: center;
+}
+
+.setting-item-view-title, .setting-item-add-title{
+    text-align: center;
+    color: var(--header-title-font-color);
+    font-family: var(--header-title-font-family);
+    font-size: var(--header-title-font-size);
+    font-weight: var(--header-title-font-weight);
+}
+.setting-item-view-sub{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+.setting-item-add-label{
+    color: var(--input-label-color);
+    font-family: var(--input-label-font-family);
+    font-size: var(--input-label-font-size);
+    font-weight: var(--input-label-font-weight);
+}

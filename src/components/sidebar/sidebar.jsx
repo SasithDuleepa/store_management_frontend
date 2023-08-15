@@ -12,17 +12,17 @@ export default function Sidebar() {
             <a className='nav_link' href='/sale'>Sale</a>
         </div>
         <div className='sidebar_item'>
+            <a className='nav_link' href='/customer'>Customers</a>
+        </div>
+        <div className='sidebar_item'>
+            <a className='nav_link' href='/stock'>Stock</a>
+        </div>
+        {/* <div className='sidebar_item'>
             <a className='nav_link'>navlink</a>
         </div>
         <div className='sidebar_item'>
             <a className='nav_link'>navlink</a>
-        </div>
-        <div className='sidebar_item'>
-            <a className='nav_link'>navlink</a>
-        </div>
-        <div className='sidebar_item'>
-            <a className='nav_link'>navlink</a>
-        </div>
+        </div> */}
         <div className='sidebar_item'>
             <div class="nav_link_dropdown">
                 <p className='sidebar-setting'>Setting</p>
@@ -31,7 +31,7 @@ export default function Sidebar() {
 
                 <ul className='setting_dropdown_list'>
                     <li><a className='setting_dropdown_list_item'  href='/catergory'>catergory</a></li>
-                    <li><a className='setting_dropdown_list_item'   href='#'>Items</a></li>
+                    <li><a className='setting_dropdown_list_item'   href='/items'>Items</a></li>
                     <li><a className='setting_dropdown_list_item'   href='#'>Users</a></li>
                     
                 </ul>

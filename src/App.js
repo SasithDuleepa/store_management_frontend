@@ -6,9 +6,12 @@ import './App.css';
 import Sidebar from './components/sidebar/sidebar';
 import Footer from './components/footer/footer';
 
-import Pos from './pos/pos';
+import Pos from './pages/pos/pos';
 import Setting from './pages/setting/setting';
 import Catergory from './pages/setting/catergory/catergory';
+import Items from './pages/setting/items/items';
+import Stock from './pages/stock/stock';
+import Customer from './pages/customers/customer';
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route exact path="/sale" component={Pos} />
           <Route exact path="/setting" component={Setting} />
           <Route exact path="/catergory" component={Catergory}/>
+          <Route exact path="/items" component={Items}/>
+          <Route exact path="/stock" component={Stock}/>
+          <Route exact path="/customer" component={Customer}/>
         </Switch>
     </Router>
       

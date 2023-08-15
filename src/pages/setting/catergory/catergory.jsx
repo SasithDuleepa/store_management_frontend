@@ -7,6 +7,10 @@ import CatergorySetting from '../../../components/catergory_setting/catergoryset
 
 
 export default function Catergory() {
+  const[addbutton, setaddbutton] = useState('setting-catergory-add-button')
+  const[editebutton, setEditebutton] = useState('setting-catergory-edite-hidden')
+  const[deletebutton, setdeletebutton] = useState('setting-catergory-delete-hidden')
+  
   const [catergoryData, setCatergoryData] = useState({
     Catergory: '',
     file: null,
@@ -16,6 +20,7 @@ export default function Catergory() {
 
   const Namehandler = (e) => {
     setCatergoryData({ ...catergoryData, Catergory: e.target.value });
+    setEditingCategory({ ...editingCategory, name: e.target.value })
   };
 
   const Filehandler = (e) => {
@@ -66,15 +71,22 @@ export default function Catergory() {
 
   //function for edite icon
   const Edite =(id,name,file_name) => (e)=>{
+    setaddbutton('setting-catergory-add-button-disable')
+    setEditebutton('setting-catergory-update-button-active')
+    setdeletebutton('setting-catergory-delete-button-active')
+    
+    
     setEditingCategory({ id, name, file_name });
     console.log(id, name, file_name);
     if(file_name === null || file_name === undefined || file_name === 'null'){
-      setEditingCategory({
+      setCatergoryData({
+        catergory_id:id,
         Catergory: name,
-        file_name: 'file-1691735122040-curry.png',
+        file_name: null,
       })
     }else{
       setCatergoryData({
+        catergory_id:id,
         Catergory: name,
         file: file_name,
   
@@ -86,8 +98,6 @@ export default function Catergory() {
 
   useEffect(() => {
     getAllCatergories();
-  
-   
   }, [])
   
 
@@ -98,10 +108,41 @@ export default function Catergory() {
     }
     return null;
   };
+
+  //delete function
+  const DeleteHandler =()=>{
+    console.log(editingCategory)
+
+  }
+
+  //update function
+  const UpdateHandler = async() =>{
+    const formData = new FormData();
+    formData.append('id', catergoryData.catergory_id);
+    formData.append('category', catergoryData.Catergory);
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+  }
+    
+    if(catergoryData.file){
+      // console.log('file')
+      formData.append('file', catergoryData.file);}
+    else{formData.append('file', null);}
+    
+
+    const res =await Axios.put('http://localhost:8080', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    console.log(res)
+  }
   return (
     <div class="setting-catergory-parent">
       <div class="setting-catergory-div1">
-        {/* ... */}
+      <h1 className='setting-catergory-view-title'>Catergories</h1>
+        <div  className='setting-catergory-sub-div'>
+          {/* ... */}
         {catergories.map((catergory) => (
   <CatergorySetting
     key={catergory.catergory_id}
@@ -111,12 +152,17 @@ export default function Catergory() {
   />
 ))}
 
+        </div>
         
-      
+        
+
       </div>
+
+
       <div class="setting-catergory-div2">
         {/* ... */}
         <div className='setting-catergory-add-div'>
+          <h1 className='setting-catergory-add-title'>Add</h1>
           <div>
             <label className='setting-catergory-add-name-label'> Catergory Name :</label><br />
             <input
@@ -137,7 +183,7 @@ export default function Catergory() {
           />
 
           
-            <div>
+            <div className='setting-catergory-add-image-preview'>
             <img
               src={
                 editingCategory && editingCategory.file_name
@@ -147,10 +193,16 @@ export default function Catergory() {
               alt=""
               width='100px'
               height='100px'
+              
             />
             </div>
           </div>
-          <button className='setting-catergory-add-button' onClick={handleAddCategory}>ADD</button>
+          <button className={addbutton} onClick={handleAddCategory}>ADD</button>
+          <div className='button-div'>
+          <button className={editebutton} onClick={UpdateHandler} >Update</button>
+          <button className={deletebutton} onClick={DeleteHandler} >Delete</button>
+          </div>
+          
         </div>
       </div>
     </div>

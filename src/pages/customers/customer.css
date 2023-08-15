@@ -1,0 +1,33 @@
+.angry-grid {
+    display: grid; 
+ 
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+    gap: 10px;
+    height: 100%;
+    margin: 20px 20px 20px 20px;
+    
+ }
+   
+ #item-0 {
+ 
+    background-color: #668B7D; 
+    grid-row-start: 1;
+    grid-column-start: 1;
+ 
+    grid-row-end: 4;
+    grid-column-end: 4;
+    height: 85vh;
+    
+ }
+ #item-1 {
+ 
+    background-color: #6987C9; 
+    grid-row-start: 1;
+    grid-column-start: 4;
+ 
+    grid-row-end: 4;
+    grid-column-end: 6;
+    
+ }

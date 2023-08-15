@@ -1,0 +1,45 @@
+.stock-parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    margin: 10px;
+    }
+    
+    .stock-div1 { 
+        grid-area: 1 / 1 / 6 / 4;
+        background-color: aliceblue;
+        height: 85vh;
+        background:var(--container-color);
+        border-radius: var(--container-border-raidius);
+        box-shadow: var(--container-box-shadow);
+        backdrop-filter: var(--container-backdrop-filter);
+    }
+
+    .stock-div3 {
+       grid-area: 1 / 4 / 6 / 6;
+       background-color: aqua;
+       background:var(--container-color);
+        border-radius: var(--container-border-raidius);
+        box-shadow: var(--container-box-shadow);
+        backdrop-filter: var(--container-backdrop-filter);
+    }
+    .stockitem-subdiv{
+        display: flex;
+    }
+
+    .stock-view-title,.stock-add-title{
+        text-align: center;
+        font-size:var(--header-title-font-size);
+      font-family:var(--header-title-font-family);
+      font-weight:var(--header-title-font-weight);
+      color:var(--header-title-font-color);
+    }
+
+    .stock-input-label{
+        color: var(--input-label-color);
+        font-size: var(--input-label-font-size);
+        font-family:var(--label-font-family) ;
+        font-weight: var(--input-label-font-weight);
+    }

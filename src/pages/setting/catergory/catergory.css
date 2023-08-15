@@ -7,25 +7,40 @@
     grid-column-gap: 10px;
     grid-row-gap: 0px;
     padding: 10px;
-    margin-top: 20px;
+    margin: 10px 10px 10px auto;
     }
     
     .setting-catergory-div1 { 
         grid-area: 1 / 1 / 6 / 4;
-        background-color: rgba(250, 235, 215, 0.167);
         padding: 10px;
+        flex-wrap: wrap;
+        background:var(--container-color);
+        border-radius: var(--container-border-raidius);
+        box-shadow: var(--container-box-shadow);
+        backdrop-filter: var(--container-backdrop-filter);
+
+     }
+     .setting-catergory-sub-div{
         display: flex;
         flex-wrap: wrap;
      }
     .setting-catergory-div2 { 
         grid-area: 1 / 4 / 6 / 6; 
-        background-color: rgba(250, 235, 215, 0.167);
         display: flex;
         flex-direction: column;
-        
         align-items: center;
+        background:var(--container-color);
+        border-radius: var(--container-border-raidius);
+        box-shadow: var(--container-box-shadow);
+        backdrop-filter: var(--container-backdrop-filter);
 }
-
+    .setting-catergory-view-title, .setting-catergory-add-title{
+      font-size:var(--header-title-font-size);
+      font-family:var(--header-title-font-family);
+      font-weight:var(--header-title-font-weight);
+      color:var(--header-title-font-color);
+      text-align: center;
+    }
     .setting-catergory-available-title{
         text-align: center;
         color: white;
@@ -48,12 +63,10 @@
         flex-direction: column;
         align-items: center;
     }
-    .setting-catergory-add-title{
-        text-align: center;
-        color: white;
-    }
+
     .setting-catergory-name-input{
         background-color: transparent;
+        color: white;
         border: 2px solid rgb(255, 255, 255);
         border-radius: 10px;
         width: 250px;
@@ -70,6 +83,7 @@
 
 input[type=text]:focus {
   background: #ffffff;
+  color: black;
 
 }
     
@@ -84,6 +98,7 @@ input[type=text]:focus {
         color: white;
     }
     .setting-catergory-add-image-label{
+        margin-left: -78px;
         font-size: 18px;
         font-weight: 500;
         color: white;
@@ -91,10 +106,12 @@ input[type=text]:focus {
     }
 
     .setting-catergory-file-input {
+        margin-top: 20px;
+        background-color: #007bff;
         position: absolute;
         opacity: 0;
-        width: 100%;
-        height: 100%;
+        width: 8%;
+        height: 15%;
         cursor: pointer;
       }
       
@@ -147,9 +164,7 @@ input[type=file]::file-selector-button:hover {
   font-size: 16px;
   font-weight: 600;
   line-height: normal;
-  
 
-  
   outline: none;
   padding: 10px 10px;
   margin: 50px;
@@ -164,8 +179,15 @@ input[type=file]::file-selector-button:hover {
 
     }
     
+    .setting-catergory-add-image-preview{
+        margin-top: 20px;
+        background-color: rgb(112, 114, 115);
+    }
 
-
+.button-div{
+    display: flex;
+    margin-top: 30px;
+}
 
 .setting-catergory-add-button:disabled {
   pointer-events: none;
@@ -181,4 +203,96 @@ input[type=file]::file-selector-button:hover {
 .setting-catergory-add-button:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.setting-catergory-add-button-disable{
+    display: none;
+}
+
+.setting-catergory-update-button-active{
+    display: block;
+    appearance: none;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  
+
+  
+  outline: none;
+  padding: 10px;
+  margin: 10px auto 10px auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 45%;
+  will-change: transform;
+}
+.setting-catergory-update-button-active:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .setting-catergory-update-button-active:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+.setting-catergory-delete-button-active{
+    display: block;
+    appearance: none;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  
+
+  
+  outline: none;
+  padding: 10px 10px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 45%;
+  will-change: transform;
+}
+.setting-catergory-delete-button-active:hover {
+    color: #fff;
+    background-color: #380c0c;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .setting-catergory-delete-button-active:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+.setting-catergory-edite-hidden{
+     display: none;
+}
+.setting-catergory-delete-hidden{
+    display: none;
 }

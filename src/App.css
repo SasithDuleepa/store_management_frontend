@@ -5,7 +5,34 @@ body{
 .app{
     margin: 0px 0px 60px 180px;
 }
+/* styles.css */
 
-.root{
-    --background: rgb(218, 255, 251);
-}
+@import url('https://fonts.googleapis.com/css2?family=YourChosenFont&display=swap');
+
+:root {
+    --primary-color: #007bff;
+
+    --header-title-font-family:'Roboto', sans-serif;
+    --header-title-font-color:#ffffff;
+    --header-title-font-size:23px;
+    --header-title-font-weight:700;
+
+
+    --container-color:rgba(255, 255, 255, 0.038);
+    --container-border-raidius:16px;
+    --container-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --container-backdrop-filter:blur(9.7px);
+
+    
+    --label-color: #060606;
+    --label-font-size: 9px;
+    --label-spacing: 5px;
+    --label-font-family:'Roboto', sans-serif;
+    --label-font-weight:600;
+
+    --input-label-color: #ffffff;
+    --input-label-font-size: 14px;
+    --input-label-spacing: 5px;
+    --label-font-family:'Roboto', sans-serif;
+    --input-label-font-weight:600;
+  }
