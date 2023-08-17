@@ -24,6 +24,9 @@
         border-radius: var(--container-border-raidius);
         box-shadow: var(--container-box-shadow);
         backdrop-filter: var(--container-backdrop-filter);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .stockitem-subdiv{
         display: flex;
@@ -36,10 +39,142 @@
       font-weight:var(--header-title-font-weight);
       color:var(--header-title-font-color);
     }
-
+    .stock-input-div{
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        margin-top: 20px;
+        align-items: center;
+    }
     .stock-input-label{
         color: var(--input-label-color);
         font-size: var(--input-label-font-size);
         font-family:var(--label-font-family) ;
         font-weight: var(--input-label-font-weight);
     }
+
+    .stock-add-button-active{
+        display: block;
+    appearance: none;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  outline: none;
+  padding: 10px 10px;
+  margin: 40px auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 30%;
+  will-change: transform;
+    }
+    .stock-add-button-active:hover {
+        color: #000000;
+        background-color: #fdfdfd;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+      }
+      
+      .stock-add-button-active:active {
+        box-shadow: none;
+        transform: translateY(0);
+      }
+    .stock-add-button-deactive{
+        display: none;
+    }
+
+
+    .stock-update-delete-active{
+      display: flex;
+    }
+    .stock-update-delete-deactive{
+      display: none;
+    }
+
+    .stock-updatebutton{
+      display: block;
+    appearance: none;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  outline: none;
+  padding: 10px 10px;
+  margin: 40px auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 60%;
+  will-change: transform;
+    }
+  .stock-updatebutton:hover {
+        color: #000000;
+        background-color: #fdfdfd;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+      }
+      
+      .stock-updatebutton:active {
+        box-shadow: none;
+        transform: translateY(0);
+      }
+
+
+         .stock-deletebutton{
+      display: block;
+    appearance: none;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  outline: none;
+  padding: 10px 15px;
+  margin: 40px 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70%;
+  will-change: transform;
+    }
+  .stock-deletebutton:hover {
+        color: #ffffff;
+        background-color: #6c0a0a;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+      }
+      
+      .stock-deletebutton:active {
+        box-shadow: none;
+        transform: translateY(0);
+      }

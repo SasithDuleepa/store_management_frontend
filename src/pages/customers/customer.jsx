@@ -4,7 +4,11 @@ import Axios from 'axios';
 import CustomerView from '../../components/customer/customerView';
 
 export default function Customer() {
+  const[buttonset,setButtonset]=useState('customer-view-update-delete-deactive')
+  const[addbutton,setAddbutton]=useState('customer-view-add-button-active')
+
   const[customerData,setCustomerData]=useState({
+    CustomerId:'',
     CustomerName:'',
     CustomerAddress:'',
     CustomerEmail:'',
@@ -45,15 +49,50 @@ useEffect(()=>{
 ,[])
   
 
+//edite
+const EditeHandler=(id,name,address,email,contactNo,nic)=>(e)=>{
+  console.log(id,name,address,email,contactNo,nic)
+  setCustomerData({
+    CustomerId:id,
+    CustomerName:name,
+    CustomerAddress:address,
+    CustomerEmail:email,
+    CustomerContactNo:contactNo,
+    CustomerNIC:nic
+    
+  }
+    )
+    setButtonset('customer-view-update-delete-active')
+    setAddbutton('customer-view-add-button-deactive')
+
+
+
+}
+
+//update
+const updateCustomer=async()=>{
+  const res = await Axios.put('http://localhost:8080/customers', customerData)
+  if(res.status === 200){alert("Customer updated successfully")
+}
+}
+
+//delete
+const deleteCustomer=async()=>{
+  const res = await Axios.delete(`http://localhost:8080/customers/?id=${customerData.CustomerId}`)
+  console.log(res.data);
+}
+
   return (
 <div class="angry-grid">
   <div id="item-0">
+    <h1 className='customer-header'>Customers</h1>
     <div className='serchbar-container'>
      <input type='text' className='customer-view-searchbar' placeholder='Search Customer' />
     </div>
     
     <div className='customer-view'>
-      <CustomerView name='xxaaaa aaaaaaaaaa aaaaaaaa aaaaaaaaa aaaaaaaaaaaaaaa' address='xx' email='xx' contactNo='xx' nic='xx' />
+      
+      
       {customers.map((customer)=>{
         return(
           <CustomerView
@@ -61,8 +100,14 @@ useEffect(()=>{
             address={customer.customer_address}
              email={customer.customer_email}
               contactNo={customer.customer_contact_no}
-               nic={customer.customer_NIC
-               }
+               nic={customer.customer_NIC}
+                edit={EditeHandler(
+                  customer.customer_id,customer.customer_name,
+                  customer.customer_address,
+                  customer.customer_email,
+                  customer.customer_contact_no,
+                  customer.customer_NIC)}
+               
                 />
         )
       
@@ -71,28 +116,33 @@ useEffect(()=>{
     </div>
   </div>
   <div id="item-1">
-    <h1>Add Customer</h1>
-    <div>
-        <label>Customer name:</label>
+    <h1 className='customer-add-header'>Add Customer</h1>
+    <div className='customer-view-input-div'>
+        <label className='customer-add-input-label'>Customer Name:</label>
         <input id='CustomerName' value={customerData.CustomerName} onChange={(e)=>HandleCustomerData(e)} type="text" />
     </div>
-    <div>
-        <label>Customer Address:</label>
+    <div className='customer-view-input-div'>
+        <label className='customer-add-input-label'>Customer Address:</label>
         <input id='CustomerAddress' value={customerData.CustomerAddress} onChange={(e)=>HandleCustomerData(e)}  type="text" />
     </div>
-    <div>
-        <label>Customer email:</label>
+    <div className='customer-view-input-div'>
+        <label className='customer-add-input-label'>Customer Email:</label>
         <input id='CustomerEmail' value={customerData.CustomerEmail} onChange={(e)=>HandleCustomerData(e)}  type="text" />
     </div>
-    <div>
-        <label>Customer contact no:</label>
+    <div className='customer-view-input-div'>
+        <label className='customer-add-input-label'>Customer Contact No:</label>
         <input id='CustomerContactNo' value={customerData.CustomerContactNo} onChange={(e)=>HandleCustomerData(e)}  type="text" />
     </div>
-    <div>
-        <label>Customer NIC:</label>
+    <div className='customer-view-input-div'>
+        <label className='customer-add-input-label'>Customer NIC:</label>
         <input id='CustomerNIC' value={customerData.CustomerNIC} onChange={(e)=>HandleCustomerData(e)}  type="text" />
     </div>
-    <button onClick={addCustomer}>Add</button>
+    <button className={addbutton} onClick={addCustomer}>Add</button>
+    <div className={buttonset}>
+      <button className='customer-view-update-button' onClick={updateCustomer}>update</button>
+      
+      <button className='customer-view-delete-button'  onClick={deleteCustomer}>delete</button>
+    </div>
     
   </div>
 </div>

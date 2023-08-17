@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './stock.css';
 import Axios from 'axios';
 import StockItems from '../../components/stock_items/stockItems';
 
 export default function Stock() {
+    const[buttondiv,setButtondiv]= useState('stock-update-delete-deactive')
+    const[addbutton,setAddbutton] = useState('stock-add-button-active')
     const[data, setData] = React.useState({
+        id:"",
         catergory:"",
         item_name:"",
         stock_qty:"",
@@ -68,9 +71,22 @@ export default function Stock() {
     , [])
 
     //edite
-    const editeFunction = (itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location) => (e)=> {
+    const editeFunction = (id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location) => (e)=> {
 
-       console.log(itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location);
+       console.log(id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location);
+       setData({
+        id:id,
+        catergory:catergory,
+        item_name:itemname,
+        stock_qty:stock_qty,
+        taking_price:taking_price,
+        selling_price:selling_price,
+        batch_no:batch_no,
+        exp_date:exp_date,
+        location:location
+       })
+       setAddbutton('stock-add-button-deactive')
+       setButtondiv('stock-update-delete-active')
  
 
 
@@ -98,7 +114,7 @@ export default function Stock() {
              
              {stockItems.map((item) => (
                     <StockItems
-                    itemName={item.item_id}
+                    itemName={item.item_name}
                     catergory={item.catergory}
                     stock_qty={item.stock_qty}
                     taking_price={item.taking_price}
@@ -107,7 +123,8 @@ export default function Stock() {
                     exp_date={item.expire_date}
                     location={item.location}
                     editeFunction={editeFunction(
-                        item.item_id,
+                        item.stock_id,
+                        item.item_name,
                         item.catergory,
                         item.stock_qty,
                         item.taking_price,
@@ -130,9 +147,9 @@ export default function Stock() {
 </div>
 
 <div class="stock-div3"> 
-    <h1 className='stock-add-title'>Add to Stock</h1>
-    <div>
-            <label className='stock-input-label'>catergory:</label>
+        <h1 className='stock-add-title'>Add to Stock</h1>
+        <div  className='stock-input-div'>
+            <label className='stock-input-label'>Catergory:</label>
             {/* <input type="text" id='catergory' onChange={(e)=>changeHandler(e)} value={data.catergory}/> */}
             <select id='catergory' onChange={(e)=>changeHandler(e)}>
                 <option value="">select catergory</option>
@@ -141,8 +158,8 @@ export default function Stock() {
                 ))}
             </select>
         </div>
-        <div>
-            <label className='stock-input-label'>item name :</label>
+        <div  className='stock-input-div'>
+            <label className='stock-input-label'>Item Name :</label>
             {/* 
             <input type="text" id='item_name' onChange={(e)=>changeHandler(e)} value={data.item_name}/>  */}
             <select id='item_name' onChange={(e)=>changeHandler(e)}>
@@ -152,31 +169,35 @@ export default function Stock() {
                 ))}
             </select>
         </div>
-        <div>
-            <label className='stock-input-label'>Stock qty:</label>
+        <div className='stock-input-div'>
+            <label className='stock-input-label'>Stock Qty:</label>
             <input type="text" id='stock_qty' onChange={(e)=>changeHandler(e)} value={data.stock_qty}   />
         </div>
-        <div>
-            <label className='stock-input-label'>taking price:</label>
+        <div className='stock-input-div'>
+            <label className='stock-input-label'>Taking Price:</label>
             <input type="text" id='taking_price' onChange={(e)=>changeHandler(e)} value={data.taking_price}   />
         </div>
-        <div>
-            <label className='stock-input-label'>selling price:</label>
+        <div  className='stock-input-div'>
+            <label className='stock-input-label'>Selling Price:</label>
             <input type="text" id='selling_price' onChange={(e)=>changeHandler(e)} value={data.selling_price}    />
         </div>
-        <div>
-            <label className='stock-input-label'>batch no:</label>
+        <div  className='stock-input-div'>
+            <label className='stock-input-label'>Batch No.:</label>
             <input type="text" id='batch_no' onChange={(e)=>changeHandler(e)} value={data.batch_no}   />
         </div>
-        <div>
-            <label className='stock-input-label'>exp date:</label>
+        <div className='stock-input-div'>
+            <label className='stock-input-label'>Exp. Date:</label>
             <input type="text" id='exp_date' onChange={(e)=>changeHandler(e)} value={data.exp_date}    />
         </div>
-        <div>
-            <label className='stock-input-label'>location:</label>
+        <div className='stock-input-div'>
+            <label className='stock-input-label'>Location:</label>
             <input type="text"   id='location' onChange={(e)=>changeHandler(e)} value={data.location}    />
         </div>
-        <button onClick={addHandler}>Add</button>
+        <button className={addbutton} onClick={addHandler}>Add</button>
+        <div className={buttondiv}>
+            <button className='stock-updatebutton'>Update</button>
+            <button className='stock-deletebutton'>Delete</button>
+        </div>
 </div>
 </div>
     </div>
