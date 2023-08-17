@@ -19,6 +19,8 @@
     grid-row-end: 4;
     grid-column-end: 4;
     height: 85vh;
+    overflow-y: scroll;
+
     
  }
  #item-1 {
@@ -30,4 +32,18 @@
     grid-row-end: 4;
     grid-column-end: 6;
     
+ }
+
+ .customer-view{
+   display: flex;
+   flex-wrap: wrap;
+ }
+ .serchbar-container{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 20px;
+ }
+ .customer-view-searchbar{
+   position: fixed;
  }

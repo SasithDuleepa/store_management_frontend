@@ -45,23 +45,59 @@ export default function Pos() {
         GetstockItems();
     }
     , [selectedCatergory])
+
+
+    //select item function
+    const[bill_items, setBill_items] = React.useState([]);
+    const selectItem =(stock_id,item_name,batch_no,available_qty,selling_price,expire_date)=> (e) => {
+        console.log(stock_id,item_name,available_qty,selling_price)
+       
+        setBill_items(bill_items => [...bill_items,
+            {
+                stock_id:stock_id,
+                item_name:item_name,
+                batch_no:batch_no,
+                available_qty:available_qty,
+                selling_price:selling_price,
+                expire_date:expire_date,
+                item_qty:1,
+
+    }
+        ]);
+    }
+
+    const itemQtyHandler = (stock_id, item_name, batch_no, available_qty, selling_price, expire_date, index) => (e) => {
+        const newBillItems = [...bill_items];
+        newBillItems[index] = {
+            ...newBillItems[index],
+            item_qty: e.target.value,
+            totalprice: e.target.value * selling_price,
+        };
+    
+        setBill_items(newBillItems);
+    };
+
+
+
   return (
   
 <div class="parent">
     <div class="div1">
         <div className='bill_div'>
 
-          <Bill_item />
-          <Bill_item/>
-          <Bill_item/>
-          <Bill_item/>
-          <Bill_item/>
-          <Bill_item/>
-          <Bill_item/>
-          <Bill_item/>
-          <Bill_item/>
-          <Bill_item/>
-
+          {/* <Bill_item itemName='eeeee' qty='3' price='44' totalprice='44' /> */}
+          {bill_items.map((item, index) => (
+    <Bill_item 
+        key={index}
+        itemName={item.item_name} 
+        price={item.selling_price}
+        qty={item.item_qty} 
+        ItemQtyHandler={itemQtyHandler(item.stock_id, item.item_name, item.batch_no, item.available_qty, item.selling_price, item.expire_date, index)}
+        totalprice={item.selling_price * item.item_qty}
+       
+    />
+))}
+         
 
         </div>
         
@@ -88,7 +124,9 @@ export default function Pos() {
             <div className='dot_line'></div>
             <div className='summery_total_div'>
                 <p className='total_p' >total </p>
-                <p className='total'> $ 100</p>
+                <p className='total'>
+                    {bill_items.reduce((acc, item) => acc + item.selling_price * item.item_qty, 0)}
+                </p>
             </div>
             
             <div className='button_div'>
@@ -123,18 +161,36 @@ export default function Pos() {
     </div>
     <div class="div4">
         <div className='item_div'>
-        <Item itemName='' itemprice='' qty='' price=''/>
+        {/* <Item itemName='' itemprice='' qty='' price=''/> */}
        
        {items.map((item) => (
-        <Item
-        itemName={item.item_id
-        }
-        
+        <a onClick={selectItem(item.stock_id,item.item_name,item.batch_no,item.available_qty,item.selling_price,item.expire_date)}>
+            <Item
+        itemName={item.item_name}
         qty={item.available_qty}
         price={item.selling_price}
         />
+        </a>
+        
         ))}
-     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
         

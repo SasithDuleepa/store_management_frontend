@@ -14,25 +14,48 @@
 .bill_item_name{
     font-size: 12px;
     font-weight: 600;
+    background-color: blue;
+    width: 130px;
 }
 .bill_item_price{
     font-size: 12px;
-    font-weight: 600
+    font-weight: 600;
+    background-color: yellow;
+    width: 50px;
 }
 .bill_item_quantity{
     font-size: 12px;
     font-weight: 600
 }
+.bill_item_quantity_input{
+    width: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+}
 .bill_item_price{
     font-size: 12px;
     font-weight: 600
+}
+
+.bill_item_total_price{
+    background-color: cadetblue;
+    width: 80px;
 }
 .bill_item_minus_img{
     width: 20px;
     padding: 2px;
 }
 
-.bill_item_more_img{
-    width: 20px;
+.bill_item_delete_img{
+    width: 14px;
     padding: 2px;
+    
+
+    &:hover{
+        width: 14px;
+        padding: 2px;
+        
+        background-color: red;
+    }
 }
+
