@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-color: var(--background-color);
 }
 
 .app{
@@ -10,12 +10,17 @@ body{
 @import url('https://fonts.googleapis.com/css2?family=YourChosenFont&display=swap');
 
 :root {
-    --primary-color: #007bff;
+    --primary-color: #ffffff;         
+    --secondary-color: #e74c3c;      
+    --accent-color: #ff9800;         
+    --text-color: #000000;           
+    --background-color: #000000;      
+    --link-color: #007bff;           
 
     --header-title-font-family:'Roboto', sans-serif;
     --header-title-font-color:#ffffff;
     --header-title-font-size:23px;
-    --header-title-font-weight:700;
+    --header-title-font-weight:700;    
 
 
     --container-color:rgba(255, 255, 255, 0.038);

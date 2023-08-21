@@ -24,7 +24,7 @@ export default function Customer() {
 //add
 const addCustomer=async()=>{
   try {
-    const res =await Axios.post('http://localhost:8080/customers',customerData)
+    const res =await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/customers`,customerData)
     if(res.status === 200){alert("Customer added successfully")}
   } catch (error) {
     if(error.response.status === 500){alert("Internal Server Error")}
@@ -38,7 +38,7 @@ const addCustomer=async()=>{
 //get all customers
 const[customers,setCustomers]=useState([])
 const getAllCustomers=async()=>{
-  const res = await Axios.get('http://localhost:8080/customers')
+  const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/customers`)
   console.log(res.data);
   setCustomers(res.data)
 }
@@ -71,14 +71,14 @@ const EditeHandler=(id,name,address,email,contactNo,nic)=>(e)=>{
 
 //update
 const updateCustomer=async()=>{
-  const res = await Axios.put('http://localhost:8080/customers', customerData)
+  const res = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/customers`, customerData)
   if(res.status === 200){alert("Customer updated successfully")
 }
 }
 
 //delete
 const deleteCustomer=async()=>{
-  const res = await Axios.delete(`http://localhost:8080/customers/?id=${customerData.CustomerId}`)
+  const res = await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/customers/?id=${customerData.CustomerId}`)
   console.log(res.data);
 }
 

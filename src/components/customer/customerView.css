@@ -1,7 +1,7 @@
 .customerView{
     background-color: rgb(187, 190, 190);
-    width: 200px;
-    height: 140px;
+    width: 250px;
+    height: max-content;
     padding: 10px;
     margin: 20px;
     border: 1px;
@@ -15,7 +15,8 @@
 }
 
 .customerView-div{
-    width: 200px;
+    margin-top: 5px;
+    /* width: 200px; */
     height: 20px;
     display: flex;
     align-items: center;
@@ -27,12 +28,12 @@
     gap: 20px;
     align-items: center;
     
-    width: 200px;
+    width: 80px;
     height: 20px;
     overflow: hidden;
 }
 .customer-view-props{
-    width: 90px;
+    /* width: 210px; */
     overflow: hidden;
     height: 20px;
     font-weight: 500;

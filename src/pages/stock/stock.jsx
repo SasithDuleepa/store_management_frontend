@@ -27,7 +27,7 @@ export default function Stock() {
     //get catergories
     const[catergories, setCatergories] = React.useState([]);
     const getCatergories = async () => {
-        const res = await Axios.get("http://localhost:8080");
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}`);
         console.log(res.data);
         setCatergories(res.data);
     }
@@ -39,7 +39,7 @@ export default function Stock() {
     //get items according to catergory
     const[items, setItems] = React.useState([]);
     const getItems = async () => {
-        const res = await Axios.get(`http://localhost:8080/items/accToCatergory/?catergory=${data.catergory}`);
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/items/accToCatergory/?catergory=${data.catergory}`);
         console.log(res.data);
         setItems(res.data);
     
@@ -53,7 +53,7 @@ export default function Stock() {
 
     //add
     const addHandler =async () => {
-        const res = await Axios.post('http://localhost:8080/stock',data)
+        const res = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/stock`,data)
         console.log(res.data)
     }
 
@@ -61,7 +61,7 @@ export default function Stock() {
     //get all stockitems
     const[stockItems, setStockItems] = React.useState([]);
     const getStockItems = async () => {
-        const res = await Axios.get('http://localhost:8080/stock');
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/stock`);
         console.log(res.data);
         setStockItems(res.data);
     }
@@ -91,6 +91,20 @@ export default function Stock() {
 
 
     }
+
+    //update
+   const updateHandler = async () => {
+       const res = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/stock`,data)
+       console.log(res.data)
+   
+   }
+
+   //delete 
+   const deleteHandler = async () => {
+    const res = await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/stock/?id=${data.id}`)
+    console.log(res.data)
+
+}
   return (
     <div>
         
@@ -98,8 +112,8 @@ export default function Stock() {
 <div class="stock-div1">
     <h1 className='stock-view-title'>Stock</h1>
     <div>
-        <div>
-        <input type="text" id='search' placeholder='search'/>
+        <div className='stockitem-search-div'>
+        <input className='stockitem-searchbar' type="text" id='search' placeholder='Item name'/>
         </div>
         <div className='stockitem-subdiv'>
             {/* <StockItems
@@ -195,8 +209,8 @@ export default function Stock() {
         </div>
         <button className={addbutton} onClick={addHandler}>Add</button>
         <div className={buttondiv}>
-            <button className='stock-updatebutton'>Update</button>
-            <button className='stock-deletebutton'>Delete</button>
+            <button onClick={updateHandler} className='stock-updatebutton'>Update</button>
+            <button onClick={deleteHandler} className='stock-deletebutton'>Delete</button>
         </div>
 </div>
 </div>

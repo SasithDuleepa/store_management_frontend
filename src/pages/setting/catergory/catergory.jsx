@@ -35,7 +35,7 @@ export default function Catergory() {
     formData.append('file', catergoryData.file);
     try {
       console.log(catergoryData);
-      const res = await Axios.post('http://localhost:8080', formData, {
+      const res = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -62,7 +62,7 @@ export default function Catergory() {
   const[catergories,setCatergories] = useState([])
   //get all catergories
   const getAllCatergories = async () => {
-    const getAllCatergories = await Axios.get('http://localhost:8080');
+    const getAllCatergories = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}`);
     console.log(getAllCatergories.data);
     setCatergories(getAllCatergories.data);
   }
@@ -130,7 +130,7 @@ export default function Catergory() {
     else{formData.append('file', null);}
     
 
-    const res =await Axios.put('http://localhost:8080', formData, {
+    const res =await Axios.put(`${process.env.REACT_APP_BACKEND_URL}`    , formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -163,7 +163,7 @@ export default function Catergory() {
         {/* ... */}
         <div className='setting-catergory-add-div'>
           <h1 className='setting-catergory-add-title'>Add</h1>
-          <div>
+          <div className='setting-catergory-add-input-div'>
             <label className='setting-catergory-add-name-label'> Catergory Name :</label><br />
             <input
             className='setting-catergory-name-input'
@@ -187,7 +187,7 @@ export default function Catergory() {
             <img
               src={
                 editingCategory && editingCategory.file_name
-                  ? `http://localhost:8080/file/?CatergoryFile=${editingCategory.file_name}`
+                  ? `${process.env.REACT_APP_BACKEND_URL}/file/?CatergoryFile=${editingCategory.file_name}`
                   : createImagePreviewURL()
               }
               alt=""

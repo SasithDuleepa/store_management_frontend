@@ -52,6 +52,21 @@
         font-family:var(--label-font-family) ;
         font-weight: var(--input-label-font-weight);
     }
+    .stockitem-search-div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px auto 20px auto;
+    }
+    .stockitem-searchbar{
+      position: fixed;
+   text-align: center;
+   width: 180px;
+   height: 25px;
+   border: 1px ;
+   border-radius: 16px;
+    }
+
 
     .stock-add-button-active{
         display: block;

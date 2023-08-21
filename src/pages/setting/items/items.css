@@ -34,13 +34,32 @@
     font-size: var(--header-title-font-size);
     font-weight: var(--header-title-font-weight);
 }
+.setting-item-search-div{
+    display: flex;
+    justify-content: center;
+    margin: 1px auto 35px auto;
+}
+.setting-item-view-search{
+    position: fixed;
+   text-align: center;
+   width: 180px;
+   height: 25px;
+   border: 1px ;
+   border-radius: 16px;
+}
 .setting-item-view-sub{
     display: flex;
     flex-wrap: wrap;
 }
 
 
-
+.setting-item-add-input-div{
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
 
 .setting-item-add-label{
     color: var(--input-label-color);

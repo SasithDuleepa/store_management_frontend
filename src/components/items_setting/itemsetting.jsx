@@ -22,7 +22,7 @@ export default function Itemsetting(props) {
       <a ><img onClick={props.editeFunction} className='catergorysetting-edite-icon' src={Edite} /></a>
        
         <div className='item-icon'>
-          <img className='curry-icon-img' src={`http://localhost:8080/items/file/?ItemFile=${image}`}  alt="" />
+          <img className='curry-icon-img' src={`${process.env.REACT_APP_BACKEND_URL}/items/file/?ItemFile=${image}`}  alt="" />
         </div>
         <div>
             <div className='item-name'><h3 className='item-name-text'>{props.itemname}</h3></div>

@@ -45,7 +45,7 @@ export default function Items() {
          formData.append('file', ItemData.item_file);
          try {
             console.log(formData);
-            const res = await Axios.post('http://localhost:8080/items',formData,{
+            const res = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/items`,formData,{
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -72,7 +72,7 @@ export default function Items() {
     //get all items
     const[allItems, setAllItems] = useState([])
     const GetAll = async() =>{
-        const res = await Axios.get('http://localhost:8080/items')
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/items`)
         console.log(res.data)
         setAllItems(res.data)
 
@@ -146,7 +146,7 @@ try {
         },
     };
     
-    const res = await Axios.put('http://localhost:8080/items/update', formData, config);
+    const res = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/items/update`, formData, config);
     console.log('Response:', res.data);
 } catch (error) {
     console.error('Error:', error);
@@ -159,7 +159,7 @@ try {
 const[availableCatergories,setAvailableCatergories] = useState([])
 
 const AvailableCatergories = async() =>{
-    const res = await Axios.get('http://localhost:8080')
+    const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}`)
     console.log(res.data)
     setAvailableCatergories(res.data)
 }
@@ -174,10 +174,15 @@ useEffect(() => {
     
     <div class="setting-item-parent">
         <div class="setting-item-div1">
+
             <h1 className='setting-item-view-title'>Items</h1>
+            <div className='setting-item-search-div'>
+            <input type='text' className='setting-item-view-search' placeholder='Item name' />
+            </div>
+            
             <div className='setting-item-view-sub'>
                 
-               {/* <Itemsetting editeFunction={EditeItem_()}/> */}
+
                 {allItems.map((items)=>(
                     <Itemsetting
                         key={items.item_id}
@@ -192,11 +197,11 @@ useEffect(() => {
         <div class="setting-item-div2">
             <div>
                 <h1 className='setting-item-add-title'>Add Item</h1>
-                <div>
+                <div className='setting-item-add-input-div'>
                    <label className='setting-item-add-label'>Item name :</label><br/>
                    <input type='text' onChange={(e)=>Namehandler(e)} value={ItemData.item_name} />
                 </div>
-                <div>
+                <div className='setting-item-add-input-div'>
                     <label className='setting-item-add-label'>Catergory :</label><br/>
                     {/* <input type='text' onChange={(e)=>Catergoryhandler(e)} value={ItemData.catergory}/> */}
                     <select onChange={(e)=>Catergoryhandler(e)} value={ItemData.catergory}>
@@ -205,7 +210,7 @@ useEffect(() => {
                         ))}
                     </select>
                 </div>
-                <div>
+                <div  className='setting-item-add-input-div'>
                     <label className='setting-item-add-label'>Image :</label><br/>
                     <input type='file' className='setting-catergory-file-input' onChange={(e)=>Filehandler(e)} />
                     <div className='setting-catergory-add-image-preview'>
@@ -214,7 +219,7 @@ useEffect(() => {
   src={
     
     editingItem && editingItem.file_name
-      ? `http://localhost:8080/items/file/?ItemFile=${editingItem.file_name}`
+      ? `${process.env.REACT_APP_BACKEND_URL}/items/file/?ItemFile=${editingItem.file_name}`
       : createImagePreviewURL()
   }
   alt=""

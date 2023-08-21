@@ -55,7 +55,12 @@
 
 
 
-
+    .setting-catergory-add-input-div{
+     
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     .setting-catergory-add-div{
         padding: 15px;
@@ -65,13 +70,7 @@
     }
 
     .setting-catergory-name-input{
-        background-color: transparent;
-        color: white;
-        border: 2px solid rgb(255, 255, 255);
-        border-radius: 10px;
-        width: 250px;
-        height: 23px;
-        margin-top: 3px;
+        
     }
     input[type=text] {
        
@@ -90,6 +89,10 @@ input[type=text]:focus {
 
     .setting-catergory-add-image-div{
         margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
       
     }
     .setting-catergory-add-name-label{
@@ -98,7 +101,7 @@ input[type=text]:focus {
         color: white;
     }
     .setting-catergory-add-image-label{
-        margin-left: -78px;
+        margin-left: -55px;
         font-size: 18px;
         font-weight: 500;
         color: white;
@@ -107,10 +110,11 @@ input[type=text]:focus {
 
     .setting-catergory-file-input {
         margin-top: 20px;
+        margin-left: 100px;
         background-color: #007bff;
         position: absolute;
         opacity: 0;
-        width: 8%;
+        width: 27%;
         height: 15%;
         cursor: pointer;
       }
@@ -181,7 +185,8 @@ input[type=file]::file-selector-button:hover {
     
     .setting-catergory-add-image-preview{
         margin-top: 20px;
-        background-color: rgb(112, 114, 115);
+        margin-left: 30px;
+        background-color: rgb(16, 156, 226);
     }
 
 .button-div{

@@ -8,6 +8,8 @@ import Bill_item from '../../components/bill_item/bill_item'
 import oncash from '../../components/icons/cash-on.png';
 import cashback from '../../components/icons/cash-back.png'
 
+
+
 export default function Pos() {
     //selected catergory
     const [selectedCatergory, SetSelectedCatergory] = useState("");
@@ -16,7 +18,7 @@ export default function Pos() {
     //get all catergories
     const [AllCatergory, SetCatergory] = useState([]);
     const GetCatergories = async () => {
-        const res = await Axios.get("http://localhost:8080");
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}`);
         console.log(res.data);
         SetCatergory(res.data);
     }
@@ -36,7 +38,7 @@ export default function Pos() {
     const[items, setItems] = React.useState([]);
     const GetstockItems = async () => {
         console.log('lhjkvblnknkbkhj,k.')
-        const res = await Axios.get(`http://localhost:8080/stock/AccToCatergory/?catergory=${selectedCatergory}`);
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/stock/AccToCatergory/?catergory=${selectedCatergory}`);
         console.log(res.data);
         setItems(res.data);
     

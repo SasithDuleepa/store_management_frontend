@@ -30,7 +30,7 @@ export default function CatergorySetting(props) {
         <a ><img onClick={props.editeFunction} className='catergorysetting-edite-icon' src={Edite} /></a>
        
         <div className='categorysetting-icon'>
-          <img className='categorysetting-icon-img' src={`http://localhost:8080/file/?CatergoryFile=${image}`} alt="" />
+          <img className='categorysetting-icon-img' src={`${process.env.REACT_APP_BACKEND_URL}/file/?CatergoryFile=${image}`} alt="" />
         </div>
         <div>
             <div className='categorysetting-name'><h3 className='categorysetting-name-text'>{props.catergory_name}</h3></div>

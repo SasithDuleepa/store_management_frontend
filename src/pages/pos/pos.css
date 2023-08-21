@@ -1,11 +1,8 @@
-body{
-    background-color: black;
-}
 
 
 .parent {
     width: auto;
-    height: 550px;
+    height: 90vh;
     margin: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr) 1fr 1fr;
