@@ -24,14 +24,14 @@ export default function Sidebar() {
             <a className='nav_link'>navlink</a>
         </div> */}
         <div className='sidebar_item'>
-            <div class="nav_link_dropdown">
+            <div className="nav_link_dropdown">
                 <p className='sidebar-setting'>Setting</p>
 
-                <div class="nav_link_dropdown_list"> 
+                <div className="nav_link_dropdown_list"> 
 
                 <ul className='setting_dropdown_list'>
-                    <li><a className='setting_dropdown_list_item'  href='/catergory'>catergory</a></li>
-                    <li><a className='setting_dropdown_list_item'   href='/items'>Items</a></li>
+                    <li><a className='setting_dropdown_list_item'  href='/setting/catergory'>catergory</a></li>
+                    <li><a className='setting_dropdown_list_item'   href='/setting/items'>Items</a></li>
                     <li><a className='setting_dropdown_list_item'   href='#'>Users</a></li>
                     
                 </ul>

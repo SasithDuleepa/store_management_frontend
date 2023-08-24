@@ -14,13 +14,13 @@
 .bill_item_name{
     font-size: 12px;
     font-weight: 600;
-    background-color: blue;
+
     width: 130px;
 }
 .bill_item_price{
     font-size: 12px;
     font-weight: 600;
-    background-color: yellow;
+
     width: 50px;
 }
 .bill_item_quantity{
@@ -38,7 +38,7 @@
 }
 
 .bill_item_total_price{
-    background-color: cadetblue;
+
     width: 80px;
 }
 .bill_item_minus_img{
@@ -52,10 +52,10 @@
     
 
     &:hover{
-        width: 14px;
+        width: 16px;
         padding: 2px;
         
-        background-color: red;
+        
     }
 }
 

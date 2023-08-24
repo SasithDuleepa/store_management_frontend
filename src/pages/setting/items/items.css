@@ -1,29 +1,32 @@
 .setting-item-parent{
-    height: 500px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr) 0.5fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 0px;
-    padding: 10px;
-    margin: 10px 10px 10px auto;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    margin: 20px;
+    height: 90vh;
     }
     
     .setting-item-div1 { 
         grid-area: 1 / 1 / 6 / 4;
-        background-color:var(--container-color);
+        background-color: aliceblue;
+        background:var(--container-color);
         border-radius: var(--container-border-raidius);
-        padding: 10px;
+        box-shadow: var(--container-box-shadow);
+        backdrop-filter: var(--container-backdrop-filter);
         
      }
     .setting-item-div2 { 
-        grid-area: 1 / 4 / 6 / 6; 
-        background-color: rgba(250, 235, 215, 0.167);
-        background-color:var(--container-color);
+        grid-area: 1 / 4 / 6 / 6;
+       background-color: aqua;
+       background:var(--container-color);
         border-radius: var(--container-border-raidius);
+        box-shadow: var(--container-box-shadow);
+        backdrop-filter: var(--container-backdrop-filter);
         display: flex;
+ 
         flex-direction: column;
-        margin-right: 0px;
         align-items: center;
 }
 
@@ -48,8 +51,11 @@
    border-radius: 16px;
 }
 .setting-item-view-sub{
+    margin: 10px;
     display: flex;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    
 }
 
 

@@ -1,5 +1,5 @@
 .customerView{
-    background-color: rgb(187, 190, 190);
+    background-color: var(--secondary-color);
     width: 250px;
     height: max-content;
     padding: 10px;
@@ -10,30 +10,32 @@
 .customerView-edit{
     width: 25px;
     height: 25px;
-    margin-left: 170px;
+    margin-left: 220px;
     
 }
 
 .customerView-div{
     margin-top: 5px;
-    /* width: 200px; */
+    width: 250px;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     
 }
 .customerView-label{
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
     align-items: center;
     
-    width: 80px;
+    width: 90px;
+
     height: 20px;
     overflow: hidden;
 }
 .customer-view-props{
-    /* width: 210px; */
+    width: 150px;
     overflow: hidden;
     height: 20px;
     font-weight: 500;

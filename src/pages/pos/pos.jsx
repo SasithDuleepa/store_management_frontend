@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import './pos.css'
+import { v4 as uuidv4 } from 'uuid';
+
 
 import Catergory from '../../components/catergory/catergory'
 import Item from '../../components/item/item'
 import Bill_item from '../../components/bill_item/bill_item'
 import oncash from '../../components/icons/cash-on.png';
 import cashback from '../../components/icons/cash-back.png'
+
+
 
 
 
@@ -79,12 +83,151 @@ export default function Pos() {
         setBill_items(newBillItems);
     };
 
+    //get all customers
+    const[customers, setCustomers] = useState([]);
+    const GetCustomers = async () => {
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/customers`);
+        console.log(res.data);
+        setCustomers(res.data);
+    }
+    useEffect(() => {
+        GetCustomers();
+    }
+    , [])
+    //cutomer
+    const[customer_name, setCustomer_name] = useState("");
+    const[customer_email, setCustomer_email] = useState("");
+    const customerHandler = (e) => {
+        const selectedValue= e.target.value;
+        if (selectedValue) {
+            const [customerName, customerEmail] = selectedValue.split(',');
+        
+            console.log('Customer Name:', customerName);
+            setCustomer_name(customerName);
+            console.log('Customer Email:', customerEmail);
+            setCustomer_email(customerEmail);
+        
+            
+          } else {
+            console.log('No customer selected.');
+          }
+        
+        
+    
+    }
 
+
+    //Bill id
+    const[bill_id, setBill_id] = useState("");
+    const bill_idHandler = (e) => {
+        const timestamp = new Date().getTime().toString(36);
+        const randomPortion = Math.random().toString(36).substr(2, 5); 
+       
+
+        setBill_id(`${timestamp}-${randomPortion}`);
+        
+    }
+    useEffect(() => {
+        bill_idHandler();
+    }
+    , [])
+
+    //oncash cashon
+    const[oncashClass, setonCashClass] = useState("cash-deactive");
+    const[cashonClass, setCashonClass] = useState("cash-deactive");
+
+    const[windowClass, setWindowClass] = useState("cashon-window-deactive");
+    const oncashHandler = () => {
+        setonCashClass("cash-active");
+        setCashonClass("cash-deactive");
+    
+    }
+    const cashonHandler = () => {
+        setCashonClass("cash-active");
+        setonCashClass("cash-deactive");
+
+        setWindowClass("cashon-window-active");
+
+        //show window
+    
+    }
+    //payment date
+    const[payment_date, setPayment_date] = useState("");
+    const paymetdateHandler = (e) =>{
+        setPayment_date(e.target.value);
+    }
+    const cashon_confirmHandler = () => {
+        setWindowClass("cashon-window-deactive");
+    }
+    const cashon_cancelHandler = () => {
+        setWindowClass("cashon-window-deactive");
+        setCashonClass("cash-deactive");
+        setPayment_date('')
+    }
+//pay button
+const payHandler= async()=>{
+    const bill_data={
+        bill_id:bill_id,
+        customer_name:customer_name,
+        customer_email:customer_email,
+        date:new Date().toISOString().slice(0,10),
+        payment_date:payment_date,
+        total_amount:bill_items.reduce((acc, item) => acc + item.selling_price * item.item_qty, 0),
+    }
+    const billitem_data ={
+        bill_items:bill_items,
+    }
+    console.log(bill_data);
+    console.log(billitem_data);
+
+    const res = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/bills`,{
+        bill_data:bill_data,
+        billitem_data:billitem_data,});
+
+        console.log(res.data);
+}
 
   return (
   
-<div class="parent">
-    <div class="div1">
+<div className="parent">
+    <div className={windowClass}>
+    {/* <Cashon/> */}
+    <div className='cashon-window'>
+        <div className='close-window'></div>
+        <h1>payment details</h1>
+        <div className='cashon-details'>
+        <div className='cashon-div'>
+            <div className='cashon-details-div'>
+                <label>Bill no.</label>
+                <p>{bill_id}</p>
+            </div>
+            <div className='cashon-details-div'>
+                <label>Customer Name</label>
+                <p>{customer_name}</p>
+            </div>
+            <div className='cashon-details-div'>
+                <label>bill amount :</label>
+                <p>{bill_items.reduce((acc, item) => acc + item.selling_price * item.item_qty, 0)}</p>
+            </div>
+            <div className='cashon-details-div'>
+                <label>e-mail:</label>
+                <p>{customer_email}</p>
+            </div>
+            <div className='cashon-details-div'>
+                <label>payment date:</label>
+                <input onChange={(e)=>paymetdateHandler(e)} value={payment_date} type='date'/>
+            </div>
+        </div>
+        <div className='cashon-button-div'>
+            <button onClick={cashon_confirmHandler}>confirm</button>
+            <button onClick={cashon_cancelHandler}>cancel</button>
+        </div>
+        </div>
+        
+    </div>
+    </div>
+    
+    <div className="div1">
         <div className='bill_div'>
 
           {/* <Bill_item itemName='eeeee' qty='3' price='44' totalprice='44' /> */}
@@ -105,21 +248,32 @@ export default function Pos() {
         
   
     </div>
-    <div class="div2">
+    <div className="div2">
         <div className='bill_summery_div'>
             <div className='customer_div'>
             <p>customer  </p>
-            <p>abc</p>
+
+            <select className='pos_customer' onChange={customerHandler}>
+             <option  value="">Select Customer</option>
+                  {customers.map((customer) => (
+              <option
+                  value={`${customer.customer_name},${customer.customer_email}`}
+                  key={customer.customer_name}
+              >
+              {customer.customer_name}
+             </option>
+              ))}
+            </select>
             </div>
             <div className='bill_id_div'>
-            <p>bill id  </p>
-            <p>Bill-000000</p>
+            <p>Bill id  </p>
+            <p>{bill_id}</p>
             </div>
             <div className='payment_method_div'>
                 <p>payment method</p>
                 <div>
-                    <img className='oncash' src={oncash} alt="" />
-                    <img className='cashback' src={cashback} alt="" />
+                    <img className={oncashClass} onClick={oncashHandler} src={oncash} alt="" />
+                    <img className={cashonClass} onClick={cashonHandler}  src={cashback} alt="" />
                 
                 </div>
             </div>
@@ -132,14 +286,15 @@ export default function Pos() {
             </div>
             
             <div className='button_div'>
-                <button className='button'>print</button>
+                <button className='paybutton' onClick={payHandler}>Pay</button>
             </div>
 
         </div>
 
     
     </div>
-    <div class="div3">
+    <div className="div3">
+        <h1 className='catergory_h1'>catergory</h1>
         <div className='category_div'>
             
             {AllCatergory.map((item) => (
@@ -148,6 +303,7 @@ export default function Pos() {
                 )}>
                     <Catergory 
                 Catergory_name={item.catergory_name} 
+                catergoryFile_name = {item.catergory_file}
                 // Catergory_items={item.catergory_items} 
                 />
 
@@ -161,7 +317,8 @@ export default function Pos() {
         </div>
      
     </div>
-    <div class="div4">
+    <div className="div4">
+        <h1 className='items_h1'>Items</h1>
         <div className='item_div'>
         {/* <Item itemName='' itemprice='' qty='' price=''/> */}
        

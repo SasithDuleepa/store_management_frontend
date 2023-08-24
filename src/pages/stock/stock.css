@@ -4,32 +4,39 @@
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    margin: 10px;
+    margin: 20px;
+    height: 90vh;
     }
     
     .stock-div1 { 
         grid-area: 1 / 1 / 6 / 4;
-        background-color: aliceblue;
-        height: 85vh;
+       
         background:var(--container-color);
         border-radius: var(--container-border-raidius);
         box-shadow: var(--container-box-shadow);
         backdrop-filter: var(--container-backdrop-filter);
+        
     }
 
     .stock-div3 {
        grid-area: 1 / 4 / 6 / 6;
-       background-color: aqua;
+      
        background:var(--container-color);
         border-radius: var(--container-border-raidius);
         box-shadow: var(--container-box-shadow);
         backdrop-filter: var(--container-backdrop-filter);
         display: flex;
+ 
         flex-direction: column;
         align-items: center;
     }
     .stockitem-subdiv{
+      height: 72vh;
         display: flex;
+        margin: 60px 10px 10px 10px;
+        overflow-y:scroll;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .stock-view-title,.stock-add-title{
@@ -42,7 +49,7 @@
     .stock-input-div{
         display: flex;
         justify-content: space-between;
-        width: 300px;
+        width: 450px;
         margin-top: 20px;
         align-items: center;
     }
@@ -52,11 +59,15 @@
         font-family:var(--label-font-family) ;
         font-weight: var(--input-label-font-weight);
     }
+    .stock-input{
+      width: 250px;
+  height: 25px;
+    }
     .stockitem-search-div{
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 10px auto 20px auto;
+      margin: 30px auto 20px auto;
     }
     .stockitem-searchbar{
       position: fixed;
@@ -84,14 +95,14 @@
   line-height: normal;
   outline: none;
   padding: 10px 10px;
-  margin: 40px auto;
+  margin: 40px auto 10px 60%;
   text-align: center;
   text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 30%;
+  width: 23%;
   will-change: transform;
     }
     .stock-add-button-active:hover {
@@ -104,6 +115,7 @@
       .stock-add-button-active:active {
         box-shadow: none;
         transform: translateY(0);
+       
       }
     .stock-add-button-deactive{
         display: none;
@@ -112,6 +124,8 @@
 
     .stock-update-delete-active{
       display: flex;
+      width: 300xp;
+      margin: 1px auto 10px 58%;
     }
     .stock-update-delete-deactive{
       display: none;

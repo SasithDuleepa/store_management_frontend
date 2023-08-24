@@ -55,6 +55,12 @@ export default function Stock() {
     const addHandler =async () => {
         const res = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/stock`,data)
         console.log(res.data)
+        if(res.status===200){alert("Stock added successfully");
+           }
+        
+
+
+
     }
 
 
@@ -96,13 +102,17 @@ export default function Stock() {
    const updateHandler = async () => {
        const res = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/stock`,data)
        console.log(res.data)
-   
+       if(res.status===200){alert("Stock updated successfully");}
+       else if(res.status===400){alert("Stock update failed");}
    }
+   
 
    //delete 
    const deleteHandler = async () => {
     const res = await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/stock/?id=${data.id}`)
     console.log(res.data)
+    if(res.status===200){alert("Stock deleted successfully");}
+    else if(res.status===400){alert("Stock delete failed");}
 
 }
   return (
@@ -110,21 +120,14 @@ export default function Stock() {
         
         <div class="stock-parent">
 <div class="stock-div1">
+    
     <h1 className='stock-view-title'>Stock</h1>
     <div>
         <div className='stockitem-search-div'>
         <input className='stockitem-searchbar' type="text" id='search' placeholder='Item name'/>
         </div>
         <div className='stockitem-subdiv'>
-            {/* <StockItems
-             itemName='jj'
-             catergory='jj'
-             stock_qty='jj'
-             taking_price='jj'
-             selling_price='jj'
-             batch_no='jj'
-             exp_date='jj'
-             location='jj'/> */}
+          
              
              {stockItems.map((item) => (
                     <StockItems
@@ -165,7 +168,7 @@ export default function Stock() {
         <div  className='stock-input-div'>
             <label className='stock-input-label'>Catergory:</label>
             {/* <input type="text" id='catergory' onChange={(e)=>changeHandler(e)} value={data.catergory}/> */}
-            <select id='catergory' onChange={(e)=>changeHandler(e)}>
+            <select  className='stock-input'  id='catergory' onChange={(e)=>changeHandler(e)}>
                 <option value="">select catergory</option>
                 {catergories.map((item) => (
                     <option value={item.catergory_name}>{item.catergory_name}</option>
@@ -176,7 +179,7 @@ export default function Stock() {
             <label className='stock-input-label'>Item Name :</label>
             {/* 
             <input type="text" id='item_name' onChange={(e)=>changeHandler(e)} value={data.item_name}/>  */}
-            <select id='item_name' onChange={(e)=>changeHandler(e)}>
+            <select  className='stock-input'  id='item_name' onChange={(e)=>changeHandler(e)}>
                 <option value="">select Item</option>
                 {items.map((item) => (
                     <option value={item.item_name}>{item.item_name}</option>
@@ -185,27 +188,27 @@ export default function Stock() {
         </div>
         <div className='stock-input-div'>
             <label className='stock-input-label'>Stock Qty:</label>
-            <input type="text" id='stock_qty' onChange={(e)=>changeHandler(e)} value={data.stock_qty}   />
+            <input className='stock-input'  type="text" id='stock_qty' onChange={(e)=>changeHandler(e)} value={data.stock_qty}   />
         </div>
         <div className='stock-input-div'>
             <label className='stock-input-label'>Taking Price:</label>
-            <input type="text" id='taking_price' onChange={(e)=>changeHandler(e)} value={data.taking_price}   />
+            <input className='stock-input' type="text" id='taking_price' onChange={(e)=>changeHandler(e)} value={data.taking_price}   />
         </div>
         <div  className='stock-input-div'>
             <label className='stock-input-label'>Selling Price:</label>
-            <input type="text" id='selling_price' onChange={(e)=>changeHandler(e)} value={data.selling_price}    />
+            <input className='stock-input'  type="text" id='selling_price' onChange={(e)=>changeHandler(e)} value={data.selling_price}    />
         </div>
         <div  className='stock-input-div'>
             <label className='stock-input-label'>Batch No.:</label>
-            <input type="text" id='batch_no' onChange={(e)=>changeHandler(e)} value={data.batch_no}   />
+            <input className='stock-input'  type="text" id='batch_no' onChange={(e)=>changeHandler(e)} value={data.batch_no}   />
         </div>
         <div className='stock-input-div'>
             <label className='stock-input-label'>Exp. Date:</label>
-            <input type="text" id='exp_date' onChange={(e)=>changeHandler(e)} value={data.exp_date}    />
+            <input className='stock-input'  type="text" id='exp_date' onChange={(e)=>changeHandler(e)} value={data.exp_date}    />
         </div>
         <div className='stock-input-div'>
             <label className='stock-input-label'>Location:</label>
-            <input type="text"   id='location' onChange={(e)=>changeHandler(e)} value={data.location}    />
+            <input className='stock-input'  type="text"   id='location' onChange={(e)=>changeHandler(e)} value={data.location}    />
         </div>
         <button className={addbutton} onClick={addHandler}>Add</button>
         <div className={buttondiv}>

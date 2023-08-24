@@ -42,6 +42,7 @@ export default function Catergory() {
       });
       console.log(res.data);
       if(res.status === 200){alert("Category added successfully")}
+      getAllCatergories();
   
       // Reset
       setCatergoryData({
@@ -50,8 +51,7 @@ export default function Catergory() {
       });
     } catch (error) {
       // Handle Error 
-      if(error.response.status === 500){alert("Internal Server Error")}
-      
+      if(error.response.status === 500){alert("Internal Server Error")}      
       else if(error.response.status === 400){ alert("please fill catergory name")}
     }
   
@@ -110,10 +110,17 @@ export default function Catergory() {
   };
 
   //delete function
-  const DeleteHandler =()=>{
+  const DeleteHandler =async()=>{
     console.log(editingCategory)
-
+    const res =await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/?catergoryId=${editingCategory.id}`);
+    console.log(res)
+    if(res.status === 200){alert("Category deleted successfully")}
+    else if(res.status === 400){alert("Internal Server Error")}
+    else if(res.status === 404){alert("Category not found")}
+    else if(res.status === 500){alert("Internal Server Error")}
+    getAllCatergories();
   }
+  
 
   //update function
   const UpdateHandler = async() =>{
@@ -136,6 +143,14 @@ export default function Catergory() {
       },
     });
     console.log(res)
+    if(res.status === 200){alert("Category updated successfully")
+      //clear
+      }
+    else if(res.status === 400){alert("Internal Server Error")}
+    else if(res.status === 404){alert("Category not found")}
+    getAllCatergories();
+
+
   }
   return (
     <div class="setting-catergory-parent">
@@ -185,14 +200,16 @@ export default function Catergory() {
           
             <div className='setting-catergory-add-image-preview'>
             <img
+            className='setting-catergory-add-image-preview-img'
               src={
                 editingCategory && editingCategory.file_name
                   ? `${process.env.REACT_APP_BACKEND_URL}/file/?CatergoryFile=${editingCategory.file_name}`
                   : createImagePreviewURL()
               }
               alt=""
-              width='100px'
-              height='100px'
+              width='150px'
+              height='150px'
+            
               
             />
             </div>

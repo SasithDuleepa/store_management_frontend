@@ -11,13 +11,20 @@ export default function StockItems(props) {
       
       <div>
           <p className='stockitem-name'>{props.itemName}</p>
-          <p className='stockitem-catergory'>catergory :{props.catergory}</p>
-          <p className='stockitem-qty'>Stock qty :{props.stock_qty}</p>
-          <p className='stockitem-takingprice'>taking price :{props.taking_price}</p>
-          <p className='stockitem-sellingprice'>selling price :{props.selling_price}</p>
-          <p className='stockitem-batchno'>batch no :{props.batch_no}</p>
-          <p className='stockitem-expdate'>exp date :{props.exp_date}</p>
-          <p className='stockitem-location'>location :{props.location}</p>
+          <div className='stock-item-div'><p className='stockitem-catergory'>catergory : </p><p className='stockitem-props'>{props.catergory}</p></div>
+          <div className='stock-item-div'><p className='stockitem-qty'>Stock qty : </p><p className='stockitem-props'>{props.stock_qty}</p></div>
+          <div className='stock-item-div'><p className='stockitem-takingprice'>taking price : </p><p className='stockitem-props'>{props.taking_price}</p></div>
+          <div className='stock-item-div'><p className='stockitem-sellingprice'>selling price : </p><p className='stockitem-props'>{props.selling_price}</p></div>
+          <div className='stock-item-div'> <p className='stockitem-batchno'>batch no : </p><p className='stockitem-props'>{props.batch_no}</p></div>
+          <div className='stock-item-div'><p className='stockitem-expdate'>exp date : </p><p className='stockitem-props'>{props.exp_date}</p></div>
+          <div className='stock-item-div'><p className='stockitem-location'>location : </p><p className='stockitem-props'>{props.location}</p></div>
+          
+          
+          
+          
+         
+          
+          
 
 
       </div>

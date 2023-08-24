@@ -24,8 +24,8 @@ function App() {
           <Route exact path="/" component={Pos} />
           <Route exact path="/sale" component={Pos} />
           <Route exact path="/setting" component={Setting} />
-          <Route exact path="/catergory" component={Catergory}/>
-          <Route exact path="/items" component={Items}/>
+          <Route exact path="/setting/catergory" component={Catergory}/>
+          <Route exact path="/setting/items" component={Items}/>
           <Route exact path="/stock" component={Stock}/>
           <Route exact path="/customer" component={Customer}/>
         </Switch>

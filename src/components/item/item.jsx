@@ -25,10 +25,10 @@ export default function Item(props) {
     
         <div className='item-container_'>
             <div className='item-image'>
-                <img className='item-img' src={`${process.env.REACT_APP_BACKEND_URL}/items/itemname/?ItemName=${itemname}`} alt="" />
+                <img className='item-img' src={`${process.env.REACT_APP_BACKEND_URL}/items/itemname/?ItemName=${props.itemName}`} alt="" />
             </div>
             <div className='item-info'>
-                <h1 className='item-name'>{props.itemName}</h1>
+                <h1 className='item_name'>{props.itemName}</h1>
                 <p className='item-price'>${props.price}</p>
                 <p className='item-available'>available {props.qty}</p>
             </div>

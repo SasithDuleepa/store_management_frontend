@@ -11,7 +11,7 @@ body{
 
 :root {
     --primary-color: #ffffff;         
-    --secondary-color: #e74c3c;      
+    --secondary-color: #c9c9c9;      
     --accent-color: #ff9800;         
     --text-color: #000000;           
     --background-color: #000000;      
@@ -23,8 +23,8 @@ body{
     --header-title-font-weight:700;    
 
 
-    --container-color:rgba(255, 255, 255, 0.038);
-    --container-border-raidius:16px;
+    --container-color:rgba(50, 50, 50, 0.738);
+    --container-border-raidius:0px;
     --container-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     --container-backdrop-filter:blur(9.7px);
 
@@ -40,4 +40,26 @@ body{
     --input-label-spacing: 5px;
     --label-font-family:'Roboto', sans-serif;
     --input-label-font-weight:600;
+  }
+
+/* Track */
+::-webkit-scrollbar {
+    width: 10px;
+    
+  }
+  
+  /* Track background */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }

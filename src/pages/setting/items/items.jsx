@@ -120,13 +120,15 @@ export default function Items() {
 
   //delete function
   const DeleteHandler =async()=>{
-    
-
+    const res = await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/items/?itemId=${ItemData.item_id}`, );
+    if(res.status === 200){alert("Category deleted successfully")}
+    else if(res.status === 400){alert("Internal Server Error")}
+    GetAll();
   }
   //update function
   const UpdateHandler = async () => {
-    console.log("UpdateHandler called");
-    console.log(ItemData);
+    // console.log("UpdateHandler called");
+    // console.log(ItemData);
 
     const formData = new FormData();
     formData.append('id', ItemData.item_id);
@@ -147,12 +149,35 @@ try {
     };
     
     const res = await Axios.put(`${process.env.REACT_APP_BACKEND_URL}/items/update`, formData, config);
-    console.log('Response:', res.data);
-} catch (error) {
-    console.error('Error:', error);
-}
+    // console.log('Response:', res.data);
+    if (res.status === 200) {alert("Item updated successfully");
+    
+        //reset
+        setaddbutton('setting-catergory-add-button')
+        setEditebutton('setting-catergory-edite-hidden')
+        setdeletebutton('setting-catergory-delete-hidden')
+        GetAll();
+        SetItemData({item_id:'',
+            item_name:'',
+            catergory:'',
+            catergory:'',
+            item_file:null,
+                })
+    }
+    else if (res.status === 400) {
+        alert("Internal Server Error");
+    }
+    else if (res.status === 500) {
+        alert("Internal Server Error");
+    }
+    else if (res.status === 404) {
+        alert("Internal Server Error");
+    }
 
 
+
+}catch (error) {
+    console.error('Error:', error);}
 }
 
 //get all available catergories
@@ -160,7 +185,7 @@ const[availableCatergories,setAvailableCatergories] = useState([])
 
 const AvailableCatergories = async() =>{
     const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}`)
-    console.log(res.data)
+    // console.log(res.data)
     setAvailableCatergories(res.data)
 }
 useEffect(() => {
