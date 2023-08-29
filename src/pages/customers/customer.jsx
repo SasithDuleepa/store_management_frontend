@@ -25,7 +25,8 @@ export default function Customer() {
 const addCustomer=async()=>{
   try {
     const res =await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/customers`,customerData)
-    if(res.status === 200){alert("Customer added successfully")}
+    if(res.status === 200){alert("Customer added successfully")
+  getAllCustomers()}
   } catch (error) {
     if(error.response.status === 500){alert("Internal Server Error")}
     else if(error.response.status === 400){ alert("please fill customer name")}

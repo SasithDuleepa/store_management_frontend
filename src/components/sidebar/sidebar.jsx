@@ -30,7 +30,7 @@ export default function Sidebar() {
                 <div className="nav_link_dropdown_list"> 
 
                 <ul className='setting_dropdown_list'>
-                    <li><a className='setting_dropdown_list_item'  href='/setting/catergory'>catergory</a></li>
+                    <li><a className='setting_dropdown_list_item'  href='/setting/catergory'>Catergory</a></li>
                     <li><a className='setting_dropdown_list_item'   href='/setting/items'>Items</a></li>
                     <li><a className='setting_dropdown_list_item'   href='#'>Users</a></li>
                     
@@ -41,7 +41,10 @@ export default function Sidebar() {
           
         </div>
         <div className='sidebar_item'>
-            <a className='nav_link'>navlink</a>
+            <a className='nav_link' href='/return'>Return</a>
+        </div>
+        <div className='sidebar_item'>
+            <a className='nav_link' href='/email'>Email</a>
         </div>
 
         <div className='sidebr_bottom'>

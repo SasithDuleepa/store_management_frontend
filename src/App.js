@@ -12,6 +12,8 @@ import Catergory from './pages/setting/catergory/catergory';
 import Items from './pages/setting/items/items';
 import Stock from './pages/stock/stock';
 import Customer from './pages/customers/customer';
+import ReturnBill from './pages/returnBill/returnBill';
+import Email from './pages/email/email';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route exact path="/setting/items" component={Items}/>
           <Route exact path="/stock" component={Stock}/>
           <Route exact path="/customer" component={Customer}/>
+          <Route exact path="/return" component={ReturnBill}/>
+          <Route exact path="/email" component={Email}/>
         </Switch>
     </Router>
       

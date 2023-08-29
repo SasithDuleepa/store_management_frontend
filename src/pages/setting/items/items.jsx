@@ -41,7 +41,7 @@ export default function Items() {
     const AddHandler = async() =>{
          const formData = new FormData();
          formData.append('item_name', ItemData.item_name);
-         formData.append('catergory', ItemData.catergory);
+         formData.append('catergory_name', ItemData.catergory);
          formData.append('file', ItemData.item_file);
          try {
             console.log(formData);
@@ -53,8 +53,18 @@ export default function Items() {
         
         console.log(res.data);
         if(res.status === 200){alert("Category added successfully")}
+        GetAll()
 
         //reset
+        SetItemData(
+            {
+                item_name:'',
+                catergory:'',
+                catergory:'',
+                item_file:null,
+            }
+        )
+        
 
          } catch (error) {
             //handle error
@@ -212,8 +222,8 @@ useEffect(() => {
                     <Itemsetting
                         key={items.item_id}
                         itemname={items.item_name}
-                        catergory={items.catergory}
-                        editeFunction={EditeItem_(items.item_id,items.item_name,items.catergory,items.item_file)}
+                        catergory={items.catergory_name                        }
+                        editeFunction={EditeItem_(items.item_id,items.item_name,items.catergory_name  ,items.item_file)}
                         ItemFile_name={items.item_file}
                         />
                 ))}

@@ -31,7 +31,7 @@
         align-items: center;
     }
     .stockitem-subdiv{
-      height: 72vh;
+      height: 68vh;
         display: flex;
         margin: 60px 10px 10px 10px;
         overflow-y:scroll;
@@ -62,6 +62,16 @@
     .stock-input{
       width: 250px;
   height: 25px;
+    }
+    .stock-available-deactive{
+      display: none;
+    }
+    .stock-available-active{
+      display: flex;
+        justify-content: space-between;
+        width: 450px;
+        margin-top: 20px;
+        align-items: center;
     }
     .stockitem-search-div{
       display: flex;

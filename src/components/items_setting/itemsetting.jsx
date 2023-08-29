@@ -19,7 +19,7 @@ export default function Itemsetting(props) {
   }, [props.ItemFile_name]);
   return (
     <div className='item'>
-      <a ><img onClick={props.editeFunction} className='catergorysetting-edite-icon' src={Edite} /></a>
+      <a ><img onClick={props.editeFunction} className='item-setting-edite-icon' src={Edite} /></a>
        
         <div className='item-icon'>
           <img className='curry-icon-img' src={`${process.env.REACT_APP_BACKEND_URL}/items/file/?ItemFile=${image}`}  alt="" />

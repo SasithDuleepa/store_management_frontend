@@ -6,6 +6,9 @@ import StockItems from '../../components/stock_items/stockItems';
 export default function Stock() {
     const[buttondiv,setButtondiv]= useState('stock-update-delete-deactive')
     const[addbutton,setAddbutton] = useState('stock-add-button-active')
+
+    const[available,setAvailable]= useState('stock-available-deactive')
+
     const[data, setData] = React.useState({
         id:"",
         catergory:"",
@@ -15,7 +18,8 @@ export default function Stock() {
         selling_price:"",
         batch_no:"",
         exp_date:"",
-        location:""
+        location:"",
+        available_qty:""
     
     });
     const changeHandler = (e) => {
@@ -39,7 +43,7 @@ export default function Stock() {
     //get items according to catergory
     const[items, setItems] = React.useState([]);
     const getItems = async () => {
-        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/items/accToCatergory/?catergory=${data.catergory}`);
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/items/accToCatergory/?catergory_id=${data.catergory}`);
         console.log(res.data);
         setItems(res.data);
     
@@ -56,6 +60,7 @@ export default function Stock() {
         const res = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/stock`,data)
         console.log(res.data)
         if(res.status===200){alert("Stock added successfully");
+        getStockItems()
            }
         
 
@@ -77,7 +82,7 @@ export default function Stock() {
     , [])
 
     //edite
-    const editeFunction = (id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location) => (e)=> {
+    const editeFunction = (id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location,available) => (e)=> {
 
        console.log(id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location);
        setData({
@@ -89,10 +94,12 @@ export default function Stock() {
         selling_price:selling_price,
         batch_no:batch_no,
         exp_date:exp_date,
-        location:location
+        location:location,
+        available_qty:available
        })
        setAddbutton('stock-add-button-deactive')
        setButtondiv('stock-update-delete-active')
+       setAvailable('stock-available-active')
  
 
 
@@ -104,6 +111,7 @@ export default function Stock() {
        console.log(res.data)
        if(res.status===200){alert("Stock updated successfully");}
        else if(res.status===400){alert("Stock update failed");}
+       getStockItems()
    }
    
 
@@ -139,6 +147,7 @@ export default function Stock() {
                     batch_no={item.batch_no}
                     exp_date={item.expire_date}
                     location={item.location}
+                    available={item.available_qty}
                     editeFunction={editeFunction(
                         item.stock_id,
                         item.item_name,
@@ -148,7 +157,8 @@ export default function Stock() {
                         item.selling_price,
                         item.batch_no,
                         item.expire_date,
-                        item.location
+                        item.location,
+                        item.available_qty
                     
                     )}
 
@@ -209,6 +219,10 @@ export default function Stock() {
         <div className='stock-input-div'>
             <label className='stock-input-label'>Location:</label>
             <input className='stock-input'  type="text"   id='location' onChange={(e)=>changeHandler(e)} value={data.location}    />
+        </div>
+        <div className={available}>
+            <label className='stock-input-label'>Available Qty:</label>
+            <input className='stock-input'  type="text"   id='available_qty' onChange={(e)=>changeHandler(e)} value={data.available_qty}    />
         </div>
         <button className={addbutton} onClick={addHandler}>Add</button>
         <div className={buttondiv}>

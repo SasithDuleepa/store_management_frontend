@@ -49,6 +49,7 @@ export default function Catergory() {
         Catergory: '',
         file: null,
       });
+      setEditingCategory({ name: '' })
     } catch (error) {
       // Handle Error 
       if(error.response.status === 500){alert("Internal Server Error")}      

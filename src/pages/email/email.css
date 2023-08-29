@@ -1,0 +1,30 @@
+.parent-email {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 5px;
+grid-row-gap: 0px;
+height: 92vh;
+margin: 15px;
+}
+
+.div1-email { 
+    grid-area: 1 / 1 / 6 / 4;
+    background-color: aliceblue;
+ }
+.div2-email { 
+    grid-area: 1 / 4 / 6 / 6;
+    background-color: aqua;
+ }
+
+
+
+ .email-view-data-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: yellowgreen;
+    width: 95%;
+    padding: 5px 10px;
+    margin: 5px 10px;
+ }

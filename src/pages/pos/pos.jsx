@@ -15,8 +15,7 @@ import cashback from '../../components/icons/cash-back.png'
 
 
 export default function Pos() {
-    //selected catergory
-    const [selectedCatergory, SetSelectedCatergory] = useState("");
+    
 
 
     //get all catergories
@@ -31,7 +30,8 @@ export default function Pos() {
     }
     , [])
 
-
+    //selected catergory
+    const [selectedCatergory, SetSelectedCatergory] = useState("");
     //selectcatergory
     const selectcatergory =(catergory_name)=> (e) => {
         console.log(catergory_name);
@@ -42,7 +42,7 @@ export default function Pos() {
     const[items, setItems] = React.useState([]);
     const GetstockItems = async () => {
         console.log('lhjkvblnknkbkhj,k.')
-        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/stock/AccToCatergory/?catergory=${selectedCatergory}`);
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/stock/AccToCatergory/?catergory_id=${selectedCatergory}`);
         console.log(res.data);
         setItems(res.data);
     
@@ -185,7 +185,20 @@ const payHandler= async()=>{
         billitem_data:billitem_data,});
 
         console.log(res.data);
-}
+        if(res.status===200){
+            alert("bill created successfully");
+            setItems([]);
+            setBill_id('');
+            setCustomer_name('');
+            setCustomer_email('');
+            setBill_items([]);
+            setPayment_date('');
+        }else if(res.status===400){
+            alert("something went wrong");
+        }else if(res.status===500){
+            alert("something went wrong");
+        }
+    }
 
   return (
   

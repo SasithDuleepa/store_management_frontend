@@ -1,10 +1,11 @@
 
 .item-container_{
     background-color: aliceblue;
-    height: 120px;
-    width: 120px;
+    height: 130px;
+    width: 130px;
     border-radius: 10px;
     margin: 5px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +18,7 @@
     
 }
 .item-img{
-     height: 50px;
+     height: 80px;
 }
 
 .item-info{
@@ -33,20 +34,20 @@
     font-size: 9px;
     font-family: 'Open Sans', sans-serif;
     width: 90%;
-    height: 30px;
+    height: 20px;
    
     overflow: hidden;
     text-align: center;
     
 }
 .item-price{
-    margin-top: -3px;
-    font-size: 8px;
+    margin-top: 0px;
+    font-size: 9px;
     font-weight: 400;
 }
 .item-available{
     margin-top: -6px;
-    font-size: 7px;
+    font-size: 8px;
     font-family: 'Roboto', sans-serif;
 
 }
