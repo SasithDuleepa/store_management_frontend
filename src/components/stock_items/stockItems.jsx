@@ -9,7 +9,7 @@ export default function StockItems(props) {
     <a ><img onClick={props.editeFunction} className='stockitem-edite-icon' src={Edite} /></a>
      
       
-      <div>
+      <div className='stockitem_div'>
           <p className='stockitem-name'>{props.itemName}</p>
           <div className='stock-item-div'><p className='stockitem-catergory'>catergory : </p><p className='stockitem-props'>{props.catergory}</p></div>
           <div className='stock-item-div'><p className='stockitem-qty'>Stock qty : </p><p className='stockitem-props'>{props.stock_qty}</p></div>

@@ -1,11 +1,11 @@
 .bill-view-div{
-    width: 900px;
+    width: 700px;
     height: 20px;
-    background-color: antiquewhite;
+    background-color: rgba(250, 235, 215, 0.064);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 10px;
     padding: 3px 20px;
     margin: 10px 40px;
     border: 1px;
@@ -14,28 +14,32 @@
 .bill-view-billId{
     font-size: 14px;
     font-weight: 500;
-    background-color: aqua;
-    width: 150px;
+    /* background-color: aqua; */
+    width: 110px;
     overflow: hidden;
+    color: aliceblue;
 }
 .bill-view-billDate{
     font-size: 14px;
     font-weight: 500;
-    background-color: aqua;
-    width: 150px;
+    /* background-color: aqua; */
+    width: 80px;
     overflow: hidden;
+    color: aliceblue;
 }
 .bill-view-amount{
     font-size: 14px;
     font-weight: 500;
-    background-color: aqua;
-    width: 150px;
+    /* background-color: aqua; */
+    width: 50px;
     overflow: hidden;
+    color: aliceblue;
 }
 .bill-view-customer{
     font-size: 14px;
     font-weight: 500;
-    background-color: aqua;
-    width: 170px;
+    /* background-color: aqua; */
+    width: 100px;
     overflow: hidden;
+    color: aliceblue;
 }

@@ -234,12 +234,14 @@ useEffect(() => {
                 <h1 className='setting-item-add-title'>Add Item</h1>
                 <div className='setting-item-add-input-div'>
                    <label className='setting-item-add-label'>Item name :</label><br/>
-                   <input type='text' onChange={(e)=>Namehandler(e)} value={ItemData.item_name} />
+                   <input className='setting-item-add-input' type='text' onChange={(e)=>Namehandler(e)} value={ItemData.item_name} />
                 </div>
                 <div className='setting-item-add-input-div'>
                     <label className='setting-item-add-label'>Catergory :</label><br/>
                     {/* <input type='text' onChange={(e)=>Catergoryhandler(e)} value={ItemData.catergory}/> */}
                     <select onChange={(e)=>Catergoryhandler(e)} value={ItemData.catergory}>
+                        <option value="">Select Catergory</option>
+                        
                         {availableCatergories.map((catergory)=>(
                             <option value={catergory.catergory_name}>{catergory.catergory_name}</option>
                         ))}
@@ -247,20 +249,16 @@ useEffect(() => {
                 </div>
                 <div  className='setting-item-add-input-div'>
                     <label className='setting-item-add-label'>Image :</label><br/>
-                    <input type='file' className='setting-catergory-file-input' onChange={(e)=>Filehandler(e)} />
-                    <div className='setting-catergory-add-image-preview'>
+                    <input type='file' className='setting-item-file-input' onChange={(e)=>Filehandler(e)} />
+                    <div className='setting-item-add-image-preview'>
                     <img
-                    
-  src={
-    
-    editingItem && editingItem.file_name
-      ? `${process.env.REACT_APP_BACKEND_URL}/items/file/?ItemFile=${editingItem.file_name}`
-      : createImagePreviewURL()
-  }
-  alt=""
-  width="100px"
-  height="100px"
-/>
+                    className='setting-item-add-image-preview-img'
+                     src={editingItem && editingItem.file_name? `${process.env.REACT_APP_BACKEND_URL}/items/file/?ItemFile=${editingItem.file_name}`
+                         : createImagePreviewURL() }
+                         alt=""
+                      width="100px"
+                         height="100px"
+                    />
             </div>
                 
                 </div>

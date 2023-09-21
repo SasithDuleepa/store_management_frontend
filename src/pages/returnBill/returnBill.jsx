@@ -102,23 +102,23 @@ const saveChangesHandler = () => {
                 <div className='return-bill-items-div1'>
                     <div className='return-bill-items-subdiv1'>
                        <div className='return-bill-items-bill'>
-                          <p>bill Id :</p>
-                          <p>{billData.bill_id}</p>
+                          <p className='return-bill-info'>bill Id </p>
+                          <p className='return-bill-info'>: {billData.bill_id}</p>
                      </div>
                      <div className='return-bill-items-bill'>
-                         <p>Customer :</p>
-                         <p>{billData.customer_name}</p>
+                         <p className='return-bill-info'>Customer  </p>
+                         <p className='return-bill-info'>:  { billData.customer_name}</p>
                       </div>
 
                     </div>
                     <div  className='return-bill-items-subdiv1'>
                       <div className='return-bill-items-bill'>
-                          <p>date :</p>
-                          <p>{billData.payment_date}</p>
+                          <p className='return-bill-info'>date </p>
+                          <p className='return-bill-info'>: {billData.payment_date}</p>
                       </div>
                       <div className='return-bill-items-bill'>
-                          <p>Total Amount :</p>
-                          <p>{billData.total_amount}</p>
+                          <p className='return-bill-info'>Total Amount </p>
+                          <p className='return-bill-info'>: {billData.total_amount}</p>
                       </div>
 
                     </div>
@@ -127,7 +127,7 @@ const saveChangesHandler = () => {
                 </div>
                 <div className='return-bill-items-div2'>
                     
-                    {billItems.map((billitem,index) => (
+                    
                             <table className='table'>
                             <thead>
                               <tr>
@@ -138,6 +138,7 @@ const saveChangesHandler = () => {
                                 <th scope="col">sub total</th>
                               </tr>
                             </thead>
+                            {billItems.map((billitem,index) => (
                             <tbody>
                               <tr>
                                 <th scope="row">{index+1}</th>
@@ -148,10 +149,11 @@ const saveChangesHandler = () => {
                               </tr>
                               {/* More rows... */}
                             </tbody>
+                            ))}
                                           </table>
-                    ))}
+                   
                 </div>
-                <button onClick={ConfirmHandler}>confirm</button>
+                <button className='return-bill-confirm' onClick={ConfirmHandler}>confirm</button>
             </div>
             <div class="return-div3">
                 <h1 className='return-bill-add'>return bill</h1>

@@ -1,10 +1,11 @@
 .sidebar{
-    background-color:black;
+    background-color:rgb(0, 0, 0);
     width: 170px;
     height: 120vh;
-    z-index: 2;
+    z-index: 0;
     position: fixed;
     margin-top: -20px;
+   
 }
 .sidebar_item_company{
     height: 50px;
@@ -20,15 +21,25 @@
     width: 90%;
     border: 0.6px solid rgba(255, 255, 255, 0.233);
     margin: 10px auto auto 5px;
+    
 }
+
 .nav_link{
+    color: rgba(255, 255, 255, 0.833);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px;
+    text-decoration: none;
+   
+}
+.nav_link:hover{
     color: aliceblue;
     font-size: 20px;
     font-weight: 600;
     margin: 10px;
-    
+    text-decoration: none;
+   
 }
-
 
 
 
@@ -38,12 +49,15 @@
 .sidebr_bottom{
     position: relative;
     top: 30%;
+    display: flex;
+    justify-content: center;
 }
 .sidebar_bottom_text{
     
     color: aliceblue;
     text-align: center;
     font-size: 18px;
+    text-decoration: none;
 }
 
 /* dropdown */

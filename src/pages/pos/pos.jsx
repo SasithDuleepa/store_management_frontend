@@ -206,36 +206,39 @@ const payHandler= async()=>{
     <div className={windowClass}>
     {/* <Cashon/> */}
     <div className='cashon-window'>
-        <div className='close-window'></div>
-        <h1>payment details</h1>
+        <div className='close-window-sub'>
+        {/* <div className='close-window'></div> */}
+        <h1 className='cashon-window-title'>payment details</h1>
         <div className='cashon-details'>
         <div className='cashon-div'>
             <div className='cashon-details-div'>
-                <label>Bill no.</label>
+                <label className='cashon-window-label-billno'>Bill No.</label>
                 <p>{bill_id}</p>
             </div>
             <div className='cashon-details-div'>
-                <label>Customer Name</label>
+                <label className='cashon-window-label-billno'>Customer Name</label>
                 <p>{customer_name}</p>
             </div>
             <div className='cashon-details-div'>
-                <label>bill amount :</label>
+                <label className='cashon-window-label-billno'>Bill Amount :</label>
                 <p>{bill_items.reduce((acc, item) => acc + item.selling_price * item.item_qty, 0)}</p>
             </div>
             <div className='cashon-details-div'>
-                <label>e-mail:</label>
+                <label className='cashon-window-label-billno'>E-mail:</label>
                 <p>{customer_email}</p>
             </div>
             <div className='cashon-details-div'>
-                <label>payment date:</label>
+                <label className='cashon-window-label-billno'>Payment Date:</label>
                 <input onChange={(e)=>paymetdateHandler(e)} value={payment_date} type='date'/>
             </div>
         </div>
         <div className='cashon-button-div'>
-            <button onClick={cashon_confirmHandler}>confirm</button>
-            <button onClick={cashon_cancelHandler}>cancel</button>
+            <button className='cashon-button-confirm' onClick={cashon_confirmHandler}>confirm</button>
+            <button className='cashon-button-cancel' onClick={cashon_cancelHandler}>cancel</button>
         </div>
         </div>
+        </div>
+        
         
     </div>
     </div>
@@ -264,7 +267,7 @@ const payHandler= async()=>{
     <div className="div2">
         <div className='bill_summery_div'>
             <div className='customer_div'>
-            <p>customer  </p>
+            <p>Customer  </p>
 
             <select className='pos_customer' onChange={customerHandler}>
              <option  value="">Select Customer</option>
@@ -279,11 +282,11 @@ const payHandler= async()=>{
             </select>
             </div>
             <div className='bill_id_div'>
-            <p>Bill id  </p>
+            <p>Bill Id  </p>
             <p>{bill_id}</p>
             </div>
             <div className='payment_method_div'>
-                <p>payment method</p>
+                <p>Payment Method</p>
                 <div>
                     <img className={oncashClass} onClick={oncashHandler} src={oncash} alt="" />
                     <img className={cashonClass} onClick={cashonHandler}  src={cashback} alt="" />
@@ -292,7 +295,7 @@ const payHandler= async()=>{
             </div>
             <div className='dot_line'></div>
             <div className='summery_total_div'>
-                <p className='total_p' >total </p>
+                <p className='total_p' >Total </p>
                 <p className='total'>
                     {bill_items.reduce((acc, item) => acc + item.selling_price * item.item_qty, 0)}
                 </p>

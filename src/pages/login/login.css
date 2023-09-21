@@ -1,0 +1,186 @@
+
+.login-parent-div{
+
+    margin: 0px 0px 0px -190px;
+    
+    z-index: 3;
+    display: flex;
+    width: 100vw;
+    height: 94.5vh;
+    /* margin: 20px ; */
+    background-color:black;
+    position: relative;
+}
+
+.login-child-input{
+    width: 40vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 250px;
+}
+.log-in-pic-div{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.login-header{
+    color: aliceblue;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.login-div{
+ 
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 400px;
+
+    padding: 20px 10px;
+}
+.log-in-name-div,  .log-in-password-div{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 10px;
+}
+.login-name-label, .login-password-label{
+    width: 200px;
+    font-size: 26px;
+    color: aliceblue;
+    font-weight: 600;
+}
+
+#name, #password{
+    width: 300px;
+    margin-left: 20px;
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid white;
+    color: #fcfcfc;
+}
+
+
+
+
+.pos-img{
+    width: 100px;
+    height: auto;
+}
+
+
+.log-in-company-name{
+    color: #ffffff;
+    font-size: 45px;
+    width: 50px;
+    margin-left: -200px;
+}
+
+
+
+
+.logout-btn-deactive{
+    display: none;
+}
+.logout-btn-active{
+    display: block;
+}
+
+
+
+
+
+.btn_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+.login_btn{
+   appearance: none;
+ background-color: transparent;
+ border: 2px solid #ffffff;
+ border-radius: 15px;
+ box-sizing: border-box;
+ color: #ffffff;
+ cursor: pointer;
+ display: inline-block;
+ font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+ font-size: 16px;
+ font-weight: 600;
+ line-height: normal;
+ outline: none;
+ padding: 10px 10px;
+  text-align: center;
+ text-decoration: none;
+ transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+ width: 20%;
+ will-change: transform;
+  }
+  .login_btn:hover {
+    color: #000000;
+    background-color: #fcfcfc;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+.patterns {
+    height: 100vh;
+  }
+  
+  
+  
+  svg text {
+    font-family: Lora;
+    letter-spacing: 1px;
+    stroke: #454545;
+    font-size: 100px;
+    font-weight: 700;
+    stroke-width: 3;
+   
+    animation: textAnimate 5s infinite alternate;
+    
+  }
+  
+  @keyframes textAnimate {
+    0% {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset:  20%;
+      fill:hsl(240, 20%, 99%)
+  
+    }
+    
+    100% {
+      stroke-dasharray: 50% 0;
+      stroke-dashoffstet: -20%;
+      fill: hsla(189, 68%, 75%,0%)
+    }
+    
+  }
+  
+  
+  

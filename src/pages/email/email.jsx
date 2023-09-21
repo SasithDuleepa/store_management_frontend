@@ -81,44 +81,52 @@ export default function Email() {
     return (
         <div className="parent-email">
             <div className="div1-email">
-                <h1>Email</h1>
-                <div>
-                    <p>Today :</p>
-                    <input type="date" onChange={(e) => EmailDateHandler(e)} />
+                <h1 className="email-view-title">Email</h1>
+                <div className='email-view-date-div-main'>
+                  <div className='email-view-date-div'>
+                       <p className='email-view-date-p'>Date :</p>
+                      <input className='email-view-date-input' type="date" onChange={(e) => EmailDateHandler(e)} />
+                  </div>
                 </div>
-
+                <div className='email-view-list-div-main'>
                 <div className='email-view-data-div'>
-                    <label>
+                    <label className='email-view-checked'>
                         <input
                             onChange={selectAllHandler}
                             type='checkbox'
                             checked={selectAll}
                         />
-                        Select All
+                      
                     </label>
 
-                    <p>customer</p>
-                    <p>email</p>
-                    <p>amount</p>
-                    <p>date</p>
+                    <p className='email-view-data-customer'>customer</p>
+                    <p className='email-view-data-email'>email</p>
+                    <p className='email-view-data-amount'>amount</p>
+                    <p className='email-view-data-date'>date</p>
                 </div>
                 <div>
                     {mailData.map((item, index) => (
                         <div className='email-view-data-div' key={index}>
                             <input
+                                className='email-view-checked-list'
                                 onChange={selectHandler(item)}
                                 type='checkbox'
                                 checked={selectedItems.includes(item.id)}
                             />
-                            <p>{item.customer_name}</p>
-                            <p>{item.email}</p>
-                            <p>{item.total_amount}</p>
-                            <p>{item.payment_date}</p>
+                            <p className='email-view-data-customer-list'>{item.customer_name}</p>
+                            <p className='email-view-data-email-list'>{item.email}</p>
+                            <p className='email-view-data-amount-list'>{item.total_amount}</p>
+                            <p className='email-view-data-date-list'>{item.payment_date}</p>
                         </div>
                     ))}
                 </div>
+
+                </div>
+
+                
+                <button className='email-view-send-button' onClick={SendmailHandler}>Send Email</button>
             </div>
-            <div className="div2-email">
+            {/* <div className="div2-email">
                 <h1>send mail</h1>
                 <div>
                     <div>
@@ -136,7 +144,7 @@ export default function Email() {
         </div>
                     <button onClick={SendmailHandler}>send mail   </button>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './sidebar.css'
 
 export default function Sidebar() {
+    const[user,SetUser] = useState(localStorage.getItem('user') || 'user')
  
   return (
     <div className='sidebar'>
@@ -32,7 +33,7 @@ export default function Sidebar() {
                 <ul className='setting_dropdown_list'>
                     <li><a className='setting_dropdown_list_item'  href='/setting/catergory'>Catergory</a></li>
                     <li><a className='setting_dropdown_list_item'   href='/setting/items'>Items</a></li>
-                    <li><a className='setting_dropdown_list_item'   href='#'>Users</a></li>
+                    <li><a className='setting_dropdown_list_item'   href='/setting/users'>Users</a></li>
                     
                 </ul>
 
@@ -48,7 +49,7 @@ export default function Sidebar() {
         </div>
 
         <div className='sidebr_bottom'>
-            <p className='sidebar_bottom_text'>user</p>
+            <a href='/' className='sidebar_bottom_text'>{user}</a>
         </div>
         
 

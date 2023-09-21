@@ -123,6 +123,14 @@ export default function Stock() {
     else if(res.status===400){alert("Stock delete failed");}
 
 }
+
+//search function
+const searchHandler = async (e) => {
+    const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/stock/search/?item_name=${e.target.value}`);
+    console.log(res.data);
+    setStockItems(res.data);
+
+}
   return (
     <div>
         
@@ -132,7 +140,7 @@ export default function Stock() {
     <h1 className='stock-view-title'>Stock</h1>
     <div>
         <div className='stockitem-search-div'>
-        <input className='stockitem-searchbar' type="text" id='search' placeholder='Item name'/>
+        <input className='stockitem-searchbar' onChange={(e)=>searchHandler(e)} type="text" id='search' placeholder='Item name'/>
         </div>
         <div className='stockitem-subdiv'>
           

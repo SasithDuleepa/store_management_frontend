@@ -13,6 +13,9 @@
     border-radius: 10px;
 }
 
+.stockitem_div{
+    width: 99%;
+}
 .stockitem-name-text{
     
     font-family: var(--label-font-family);
@@ -34,7 +37,7 @@
     position: relative;
     margin-left:150px;
     margin-top: -13px;
-    opacity: 0.7;
+
 }
     
 
@@ -42,6 +45,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 20px;
+}
+.stockitem-name{
+    margin-bottom: 4px;
 }
 
 .stockitem-name,

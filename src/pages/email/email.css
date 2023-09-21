@@ -1,4 +1,4 @@
-.parent-email {
+/* .parent-email {
 display: grid;
 grid-template-columns: repeat(5, 1fr);
 grid-template-rows: repeat(5, 1fr);
@@ -15,16 +15,124 @@ margin: 15px;
 .div2-email { 
     grid-area: 1 / 4 / 6 / 6;
     background-color: aqua;
- }
-
-
+ } */
+.parent-email{
+   margin: 10px;
+   padding: 10px;
+   background:var(--container-color);
+   height: 90vh;
+}
+.email-view-title{
+   text-align: center;
+    color: var(--header-title-font-color);
+    font-family: var(--header-title-font-family);
+    font-size: var(--header-title-font-size);
+    font-weight: var(--header-title-font-weight);
+}
+.email-view-list-div-main{
+   height: 75vh;
+   overflow-y:scroll;
+}
+.email-view-date-div-main{
+   display: flex;
+   justify-content: flex-end;
+   margin-bottom: 20px;
+}
+.email-view-date-div{
+   display: flex;
+   align-items: center;
+   width: 30%;
+   justify-content: space-evenly;
+   margin: 10px 10px;
+}
+.email-view-date-p{
+   color: var(--input-label-color);
+    font-family: var(--input-label-font-family);
+    font-size: var(--input-label-font-size);
+    font-weight: var(--input-label-font-weight);
+}
+.email-view-date-input{
+   width: 280px;
+   height: 30px;
+   text-align: center;
+}
 
  .email-view-data-div{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: yellowgreen;
-    width: 95%;
+    background-color: rgb(222, 222, 222);
+    width: 85%;
+    height: 30px;
     padding: 5px 10px;
-    margin: 5px 10px;
+    margin: 15px auto;
+ }
+
+
+ .email-view-checked{
+   
+ }
+ .email-view-data-customer,
+  .email-view-data-email,
+   .email-view-data-amount,
+   .email-view-data-date{
+
+   width: 24%;
+   text-align: center;
+   font-family: var(--input-label-font-family);
+   font-weight: 600;
+   font-size: 18px;
+ }
+
+ .email-view-checked-list{
+   background-color: black;
+ }
+ .email-view-data-customer-list,
+  .email-view-data-email-list,
+   .email-view-data-amount-list,
+   .email-view-data-date-list{
+
+   width: 24%;
+   text-align: center;
+   font-family: var(--input-label-font-family);
+   font-weight: 400;
+   font-size: 14px;
+   overflow: hidden;
+ }
+
+ .email-view-send-button{
+   position: fixed;
+   right: 70px;
+   bottom: 90px;
+   z-index: 2;
+
+  appearance: none;
+background-color: transparent;
+border: 2px solid #ffffff;
+border-radius: 15px;
+box-sizing: border-box;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+font-size: 16px;
+font-weight: 600;
+line-height: normal;
+outline: none;
+padding: 10px 10px;
+/* margin: 70px auto 10px 75%; */
+text-align: center;
+text-decoration: none;
+transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+width: 7%;
+will-change: transform;
+ }
+ .email-view-send-button:hover {
+   color: #000000;
+   background-color: #fcfcfc;
+   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+   transform: translateY(-2px);
  }

@@ -23,6 +23,9 @@
      }
      .setting-catergory-sub-div{
         display: flex;
+        
+        align-content: flex-start;
+        
         flex-wrap: wrap;
         overflow-y: scroll;
         height: 80vh;
@@ -69,10 +72,11 @@
       justify-content: space-between;
       align-items: center;
       width: 450px;
+      margin-top: 30px;
     }
 
     .setting-catergory-add-div{
-        padding: 15px;
+        padding: 0px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -106,27 +110,29 @@ input[type=text]:focus {
       
     }
     .setting-catergory-add-name-label{
-        font-size: 18px;
-        font-weight: 500;
-        color: white;
+      color: var(--input-label-color);
+      font-family: var(--input-label-font-family);
+      font-size: var(--input-label-font-size);
+      font-weight: var(--input-label-font-weight);
     }
     .setting-catergory-add-image-label{
-        margin-left: 0px;
-        font-size: 18px;
-        font-weight: 500;
-        color: white;
+
+        font-size: var(--input-label-font-size);
+        font-weight: var(--input-label-font-weight);
+        color: var(--input-label-color);
+        font-family: var(--input-label-font-family);
         border: none;
 
     }
 
     .setting-catergory-file-input {
-        margin-top: 20px;
-        margin-left: 300px;
+        margin-top: 27px;
+        margin-left: 290px;
 
         position: absolute;
         opacity: 0;
-        width: 27%;
-        height: 15%;
+        width: 22%;
+        height: 18%;
         cursor: pointer;
         border: none;
       }
@@ -198,9 +204,10 @@ input[type=file]::file-selector-button:hover {
     }
     
     .setting-catergory-add-image-preview{
+      height: 86%;
         margin-top: 20px;
         margin-left: 30px;
-        background-color: rgb(16, 156, 226);
+        background-color: rgb(155, 155, 155);
         border: none;
     }
     .setting-catergory-add-image-preview-img{

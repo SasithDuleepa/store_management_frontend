@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
     margin: 20px;
     height: 90vh;
     }
@@ -61,11 +61,12 @@
 
 
 .setting-item-add-input-div{
-    width: 280px;
+    width: 450px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
+    
 }
 
 .setting-item-add-label{
@@ -73,4 +74,33 @@
     font-family: var(--input-label-font-family);
     font-size: var(--input-label-font-size);
     font-weight: var(--input-label-font-weight);
+}
+
+.setting-item-add-input{
+    width: 250px;
+  height: 25px;
+}
+
+.setting-item-file-input{
+    margin-top: 0px;
+        margin-left: 295px;
+
+        position: absolute;
+        opacity: 0;
+        width: 23%;
+        height: 17%;
+        cursor: pointer;
+        border: none;
+}
+.setting-item-add-image-preview{
+    height: 150px;
+    width: 150px;
+    margin-top: 0px;
+    margin-left: 30px;
+    background-color: rgb(155, 155, 155);
+    border: none;
+}
+.setting-item-add-image-preview-img{
+    height: 100%;
+    width: 100%;
 }
