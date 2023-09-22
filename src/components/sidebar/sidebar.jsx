@@ -13,6 +13,9 @@ export default function Sidebar() {
             <a className='nav_link' href='/sale'>Sale</a>
         </div>
         <div className='sidebar_item'>
+            <a className='nav_link' href='/vendors'>Vendors</a>
+        </div>
+        <div className='sidebar_item'>
             <a className='nav_link' href='/customer'>Customers</a>
         </div>
         <div className='sidebar_item'>

@@ -19,7 +19,9 @@ export default function Stock() {
         batch_no:"",
         exp_date:"",
         location:"",
-        available_qty:""
+        available_qty:"",
+        supplier:'',
+        date:""
     
     });
     const changeHandler = (e) => {
@@ -183,6 +185,18 @@ const searchHandler = async (e) => {
 
 <div class="stock-div3"> 
         <h1 className='stock-add-title'>Add to Stock</h1>
+
+        <div className='stock-input-div'>
+            <label className='stock-input-label'>Supplier Name:</label>
+            <input className='stock-input'  type="text" id='supplier' onChange={(e)=>changeHandler(e)} value={data.supplier}  />
+        </div>
+
+        <div className='stock-input-div'>
+            <label className='stock-input-label'>Date:</label>
+            <input className='stock-input'  type="text" id='date' onChange={(e)=>changeHandler(e)} value={data.date}  />
+        </div>
+
+
         <div  className='stock-input-div'>
             <label className='stock-input-label'>Catergory:</label>
             {/* <input type="text" id='catergory' onChange={(e)=>changeHandler(e)} value={data.catergory}/> */}

@@ -19,17 +19,18 @@ export default function Login() {
 
   const LoginHandler = async () => {
     const res = await Axios.post('http://localhost:8080/login', data);
-    // console.log(res.status);
+    console.log(res.data);
 
-    if (res.status === 200) {
+    if (res.data.status === 200) {
       console.log(res.data);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('role', res.data.user_role);
       localStorage.setItem('user', res.data.user);
       window.location = '/sale';
     
-    } else if(res.status === 400) {
+    } else if(res.data.status === 400) {
       console.log('Login failed');
+      alert('Login failed');
     }
   };
 //check login status

@@ -18,6 +18,7 @@ import ReturnBill from './pages/returnBill/returnBill';
 import Email from './pages/email/email';
 import Login from './pages/login/login';
 import Users from './pages/setting/users/users';
+import Vendors from './pages/vendors/vendors';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -54,6 +55,7 @@ function App() {
           <Route exact path="/return" component={ReturnBill}/>
           <Route exact path="/email" component={Email}/>
           <Route exact path="/setting/users" component={Users}/>
+          <Route exact path="/vendors" component={Vendors}/>
         </Switch>
     </Router>
       

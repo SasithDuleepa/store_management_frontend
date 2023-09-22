@@ -103,6 +103,31 @@
     align-items: center;
     margin-top: -10px;
 }
+.on_cash-pop-up{
+    display: none;
+}
+
+.cash_on-pop-up{
+    display: none;
+    position: fixed;
+    background-color: #2e2e2e;
+    border-radius: 5px;
+    padding: 5px 9px;
+    margin: 10px;
+    width: 60px;
+    right: 2%;
+    top: 60%;
+}
+/* .cash_on-pop-up:hover{
+    position: fixed;
+    background-color: #2e2e2e;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px;
+    width: 100px;
+    right: 2%;
+    top: 60%;
+} */
 
 .dot_line{
     border-bottom: 1px solid white;
@@ -123,7 +148,7 @@
 }
 
 
-.cash-deactive{
+.cashon-deactive{
     width: 25px;
     height: 25px;
     border: 1px solid black;
@@ -132,7 +157,29 @@
     margin: 1px;
     background-color: white;
 }
-.cash-active{
+.cashon-deactive:hover .cash_on-pop-up {
+    display: block;
+}
+.oncash-deactive{
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 1px;
+    background-color: white;
+}
+.cashon-active{
+    width: 25px;
+    height: 25px;
+    border: 2px solid rgb(223, 183, 183);
+    color: white;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 1px;
+    background-color: rgb(150, 150, 150);
+}
+.oncash-active{
     width: 25px;
     height: 25px;
     border: 2px solid rgb(223, 183, 183);

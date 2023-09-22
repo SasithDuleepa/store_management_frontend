@@ -17,7 +17,6 @@ import cashback from '../../components/icons/cash-back.png'
 export default function Pos() {
     
 
-
     //get all catergories
     const [AllCatergory, SetCatergory] = useState([]);
     const GetCatergories = async () => {
@@ -133,18 +132,19 @@ export default function Pos() {
     , [])
 
     //oncash cashon
-    const[oncashClass, setonCashClass] = useState("cash-deactive");
-    const[cashonClass, setCashonClass] = useState("cash-deactive");
+    const[oncashClass, setonCashClass] = useState("oncash-deactive");
+    const[cashonClass, setCashonClass] = useState("cashon-deactive");
 
     const[windowClass, setWindowClass] = useState("cashon-window-deactive");
+
     const oncashHandler = () => {
-        setonCashClass("cash-active");
-        setCashonClass("cash-deactive");
+        setonCashClass("oncash-active");
+        setCashonClass("cashon-deactive");
     
     }
     const cashonHandler = () => {
-        setCashonClass("cash-active");
-        setonCashClass("cash-deactive");
+        setCashonClass("cashon-active");
+        setonCashClass("oncash-deactive");
 
         setWindowClass("cashon-window-active");
 
@@ -161,7 +161,7 @@ export default function Pos() {
     }
     const cashon_cancelHandler = () => {
         setWindowClass("cashon-window-deactive");
-        setCashonClass("cash-deactive");
+        setCashonClass("cashon-deactive");
         setPayment_date('')
     }
 //pay button
@@ -289,7 +289,9 @@ const payHandler= async()=>{
                 <p>Payment Method</p>
                 <div>
                     <img className={oncashClass} onClick={oncashHandler} src={oncash} alt="" />
+                    <p className='on_cash-pop-up'>on cash</p>
                     <img className={cashonClass} onClick={cashonHandler}  src={cashback} alt="" />
+                    <p className='cash_on-pop-up'>cash on back</p>
                 
                 </div>
             </div>
