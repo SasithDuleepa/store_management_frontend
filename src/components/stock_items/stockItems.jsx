@@ -19,6 +19,8 @@ export default function StockItems(props) {
           <div className='stock-item-div'><p className='stockitem-expdate'>exp date : </p><p className='stockitem-props'>{props.exp_date}</p></div>
           <div className='stock-item-div'><p className='stockitem-location'>location : </p><p className='stockitem-props'>{props.location}</p></div>
           <div className='stock-item-div'><p className='stockitem-location'>available qty : </p><p className='stockitem-props'>{props.available}</p></div>
+          <div className='stock-item-div'><p className='stockitem-supplier'>supplier : </p><p className='stockitem-props'>{props.supplier}</p></div>
+          <div className='stock-item-div'><p className='stockitem-date'>date : </p><p className='stockitem-props'>{props.date}</p></div>
           
           
           

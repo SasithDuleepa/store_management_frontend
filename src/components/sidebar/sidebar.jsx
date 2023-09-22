@@ -13,7 +13,7 @@ export default function Sidebar() {
             <a className='nav_link' href='/sale'>Sale</a>
         </div>
         <div className='sidebar_item'>
-            <a className='nav_link' href='/vendors'>Vendors</a>
+            <a className='nav_link' href='/vendors'>Supplier</a>
         </div>
         <div className='sidebar_item'>
             <a className='nav_link' href='/customer'>Customers</a>

@@ -29,6 +29,14 @@ export default function Stock() {
         
     
     }
+//get vendors
+const[vendors, setVendors] = React.useState([]);
+const GetVendors =async () => {
+    const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/vendor/all`);
+    console.log(res.data);
+    setVendors(res.data);
+
+}
 
     //get catergories
     const[catergories, setCatergories] = React.useState([]);
@@ -39,6 +47,7 @@ export default function Stock() {
     }
     useEffect(() => {
         getCatergories();
+        GetVendors();
     }
     , [])
 
@@ -84,7 +93,7 @@ export default function Stock() {
     , [])
 
     //edite
-    const editeFunction = (id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location,available) => (e)=> {
+    const editeFunction = (id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location,available,vendor,date )=> (e)=> {
 
        console.log(id,itemname,catergory,stock_qty,taking_price,selling_price,batch_no,exp_date,location);
        setData({
@@ -97,7 +106,9 @@ export default function Stock() {
         batch_no:batch_no,
         exp_date:exp_date,
         location:location,
-        available_qty:available
+        available_qty:available,
+        supplier:vendor,
+        date:date
        })
        setAddbutton('stock-add-button-deactive')
        setButtondiv('stock-update-delete-active')
@@ -121,7 +132,8 @@ export default function Stock() {
    const deleteHandler = async () => {
     const res = await Axios.delete(`${process.env.REACT_APP_BACKEND_URL}/stock/?id=${data.id}`)
     console.log(res.data)
-    if(res.status===200){alert("Stock deleted successfully");}
+    if(res.status===200){alert("Stock deleted successfully")
+    getStockItems();}
     else if(res.status===400){alert("Stock delete failed");}
 
 }
@@ -158,6 +170,8 @@ const searchHandler = async (e) => {
                     exp_date={item.expire_date}
                     location={item.location}
                     available={item.available_qty}
+                    supplier={item.vendor}
+                    date={item.date}
                     editeFunction={editeFunction(
                         item.stock_id,
                         item.item_name,
@@ -168,7 +182,9 @@ const searchHandler = async (e) => {
                         item.batch_no,
                         item.expire_date,
                         item.location,
-                        item.available_qty
+                        item.available_qty,
+                        item.vendor,
+                        item.date
                     
                     )}
 
@@ -188,7 +204,13 @@ const searchHandler = async (e) => {
 
         <div className='stock-input-div'>
             <label className='stock-input-label'>Supplier Name:</label>
-            <input className='stock-input'  type="text" id='supplier' onChange={(e)=>changeHandler(e)} value={data.supplier}  />
+            {/* <input className='stock-input'  type="text" id='supplier' onChange={(e)=>changeHandler(e)} value={data.supplier}  /> */}
+            <select  className='stock-input'  id='supplier' onChange={(e)=>changeHandler(e)}>
+                <option value="">select Supplier</option>
+                {vendors.map((item) => (
+                    <option value={item.vendor_name}>{item.vendor_name }</option>
+                ))}
+            </select>
         </div>
 
         <div className='stock-input-div'>

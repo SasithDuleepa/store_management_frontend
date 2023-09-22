@@ -58,7 +58,9 @@
 .stockitem-sellingprice,
 .stockitem-batchno,
 .stockitem-expdate,
-.stockitem-location
+.stockitem-location,
+.stockitem-supplier,
+.stockitem-date
 
 {
     font-size: 12px;

@@ -2,10 +2,10 @@ import React from 'react';
 import './vendorPreview.css';
 import Edite from './../../components/icons/edit.png'
 
-export default function VendorPreview(props) {
+export default function SupplierPreview(props) {
   return (
     <div className='vendorPreview-main-div'>
-        <img className='vendorPreview-edite-img' src={Edite} alt="edit" />
+        <img className='vendorPreview-edite-img' onClick={props.editehandler} src={Edite} alt="edit" />
         <div className='vendorPreview-div'>
             <label className='vendorPreview-label'> Name :</label>
             <p className='vendorPreview-props'>{props.name}</p>
