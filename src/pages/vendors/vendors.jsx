@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './vendors.css';
 import Axios from 'axios';
 
+import VendorPreview from '../../components/vendorPreview/vendorPreview';
+import { useEffect } from 'react';
+
 export default function Vendors() {
     const[data, setData] = useState({
         Name:'',
@@ -31,11 +34,41 @@ export default function Vendors() {
             alert("Internal Server Error")
         }
     }
+
+    //get all vendors
+    const [vendors, setVendors] = useState([])
+
+    const getallvendors = async ()=>{
+        const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/vendor/all`)
+        console.log(res.data);
+        
+            setVendors(res.data)
+        
+       
     
+    }
+
+    useEffect(()=>{
+        getallvendors()
+    
+    },[])
   return (
     <div className='vendors-parent-div'>
         <div className='vendors-child-div-1'>
-            <h1>Vendors</h1>
+            <h1 className='vendors-view-header'>Vendors</h1>
+            <div className='vendors-view'>
+                
+                {vendors.map((vendor)=>{
+                    return(
+                        
+                    <VendorPreview name={vendor.vendor_name}
+                     address={vendor.vendor_address}
+                     email={vendor.vendor_email}
+                      ContactNo={vendor.vendor_contact_no}
+                       nic={vendor.vendor_nic}  />)
+                }
+                )}
+            </div>
         </div>
         <div className='vendors-child-div-2'>
             <h1 className='vendors-add-header'>add vendors</h1>

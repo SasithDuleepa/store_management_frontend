@@ -1,0 +1,41 @@
+.vendorPreview-main-div{
+    background-color:  var(--secondary-color);
+    width: 250px;
+    height: max-content;
+    padding: 10px;
+    margin: 20px;
+    border: 1px;
+    border-radius: 10px;
+}
+.vendorPreview-edite-img{
+    width: 25px;
+    height: 25px;
+    margin-left: 220px;
+}
+
+.vendorPreview-div{
+    margin-top: 5px;
+    width: 250px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vendorPreview-label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    width: 90px;
+
+    height: 20px;
+    overflow: hidden;
+}
+
+.vendorPreview-props{
+    width: 150px;
+    overflow: hidden;
+    height: 20px;
+    font-weight: 500;
+}
