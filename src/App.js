@@ -18,6 +18,7 @@ import ReturnBill from './pages/returnBill/returnBill';
 import Email from './pages/email/email';
 import Login from './pages/login/login';
 import Users from './pages/setting/users/users';
+import Dashboad from './pages/dashboad/dashboad';
 
 import Supplier from './pages/supplier/supplier';
 import { useEffect } from 'react';
@@ -58,6 +59,7 @@ function App() {
           <Route exact path="/email" component={Email}/>
           <Route exact path="/setting/users" component={Users}/>
           <Route exact path="/vendors" component={Supplier}/>
+          <Route exact path="/dashboad" component={Dashboad}/>
         </Switch>
     </Router>
       

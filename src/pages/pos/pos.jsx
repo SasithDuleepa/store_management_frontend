@@ -185,7 +185,7 @@ const payHandler= async()=>{
         billitem_data:billitem_data,});
 
         console.log(res.data);
-        if(res.status===200){
+        if(res.data.status===200){
             alert("bill created successfully");
             setItems([]);
             setBill_id('');
@@ -193,9 +193,9 @@ const payHandler= async()=>{
             setCustomer_email('');
             setBill_items([]);
             setPayment_date('');
-        }else if(res.status===400){
+        }else if(res.data.status===400){
             alert("something went wrong");
-        }else if(res.status===500){
+        }else if(res.data.status===500){
             alert("something went wrong");
         }
     }

@@ -1,0 +1,35 @@
+
+
+.dashboad-available-stock-graph-div{
+    width: 600px;
+}
+
+
+
+.dashboad-suppliers-div{
+    width: 50%;
+    height: auto;
+    background-color: aliceblue;
+   
+}
+.dashboad-suppliers-heder-div{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+.dashboad-suppliers-details-div{
+    display: flex;
+    justify-content: space-between;
+    
+    margin: 5px;
+    -webkit-box-shadow: 5px 5px 16px -9px rgba(0,0,0,0.44);
+-moz-box-shadow: 5px 5px 16px -9px rgba(0,0,0,0.44);
+box-shadow: 5px 5px 16px -9px rgba(0,0,0,0.44);
+}
+.dashboad-suppliers-name, 
+.dashboad-suppliers-email,
+.dashboad-suppliers-address{
+    
+    width: 150px;
+    
+}

@@ -10,6 +10,9 @@ export default function Sidebar() {
             <p className='sidebar_company_text'>company</p>
         </div>
         <div className='sidebar_item'>
+            <a className='nav_link' href='/dashboad'>Dashboad</a>
+        </div>
+        <div className='sidebar_item'>
             <a className='nav_link' href='/sale'>Sale</a>
         </div>
         <div className='sidebar_item'>
