@@ -1,42 +1,44 @@
-
-.category{
+.category {
     margin: 5px;
-    background-color: azure;
-    
-    height: 80px;
-    width: 80px;
+    background-color: rgb(184, 250, 250);
+
+    height: 100px;
+    width: 100px;
     display: flex;
     flex-direction: column;
-    
+
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     border-radius: 10px;
 }
-.category-icon{
-    height: 30%;
+
+.category-icon {
+    height: 60px;
+    width: 60px;
     margin-bottom: 10px;
-}
-.curry-icon-img{
-    height: 180%;
+
+    img {
+        position: relative;
+        height: 60px;
+        width: 60px;
+    }
 }
 
-.category-name{
-    height: 20%;
-    margin-top: 10%;
 
-}
-.category-name-text{
-    font-size: 7.5px;
+.category-name-text {
+    margin-top: 0px;
+    font-size: 13px;
     font-family: 'Open Sans', sans-serif;
 
 }
 
-.category-availability{
+.category-availability {
     text-align: center;
     font-weight: 500;
 }
-.category-availability-text{
+
+.category-availability-text {
     font-size: 7px;
     font-family: 'Roboto', sans-serif;
 }

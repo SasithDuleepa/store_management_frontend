@@ -1,11 +1,18 @@
 
 import './dashboad.css';
 import Axios from 'axios';
+import Dashboad_card from '../../components/dashboad_card/dashboad_card';
 
 import React, { Component } from 'react';
 import CanvasJSReact from '@canvasjs/react-charts';
 import { useEffect } from 'react';
 import { useState } from 'react';
+
+import Items from './../../components/icons/items.png'
+import Customers_ from './../../components/icons/customers.png'
+
+
+
 //var CanvasJSReact = require('@canvasjs/react-charts');
  
 var CanvasJS = CanvasJSReact.CanvasJS;
@@ -77,11 +84,23 @@ const GetSuppliers = async()=>{
   console.log(res.data);
   setSuppliers(res.data);
 }
+//get customers
+const[Customers,setCustomers] = useState([])
+const GetCustomers = async()=>{
+  const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/customers`)
+  console.log(res.data);
+  setCustomers(res.data);
+}
 
-useEffect(()=>{GetStock() ; GetSuppliers()},[])
+useEffect(()=>{GetStock() ; GetSuppliers(); GetCustomers()},[])
   return (
     <div>
-      <div>
+      <h1 className='dashboad-view-h1'>Dashboad</h1>
+      <div className='dashboad-summery-view-div'>
+        <Dashboad_card title='Total Items' image={Items} value='400'/>
+        <Dashboad_card title='Total Customers' image={Customers_} value='400'/>
+        <Dashboad_card title='Total Suppliers' image={Items} value='400'/>
+        <Dashboad_card title='Today Sale' image={Items} value='400'/>
 
       </div>
       <div>
@@ -92,7 +111,7 @@ useEffect(()=>{GetStock() ; GetSuppliers()},[])
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		</div>
-
+    <div className='dashboad-div-2'>
     <div className='dashboad-suppliers-div'>
     <div className='dashboad-suppliers-heder-div'>
           <p className='dashboad-suppliers-name'><b>Supplier</b></p>
@@ -110,6 +129,26 @@ useEffect(()=>{GetStock() ; GetSuppliers()},[])
         }
 
     </div>
+
+    <div  className='dashboad-customers-div'>
+    <div className='dashboad-customers-heder-div'>
+          <p className='dashboad-customers-name'><b>Customer</b></p>
+          <p className='dashboad-customers-email'><b>Email</b></p>
+          <p className='dashboad-customers-address'><b>Address</b></p>
+        </div>
+      {Customers.map((item) => (
+        
+        <div className='dashboad-customers-details-div'>
+          <p className='dashboad-customers-name'>{item.customer_name}</p>
+          <p className='dashboad-customers-email'>{item.customer_email}</p>
+          <p className='dashboad-customers-address'>{item.customer_address}</p>
+        </div>
+      ))
+        }
+    </div>
+
+    </div>
+    
 
         </div>
       </div>

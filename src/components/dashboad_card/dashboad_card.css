@@ -1,0 +1,31 @@
+
+.card-main-div{
+    background-color: rgb(197, 199, 200);
+    width: 250px;
+    height: 180px;
+    border-radius: 10px;
+    padding: 3px 5px;
+}
+.card-title{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.card-img{
+    width: 80px;
+    height: 80px;
+    margin-left: 5px;
+}
+.card-preview-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+    margin-top: -15px;
+}
+.card-value{
+    font-size: 60px;
+    margin-right: 10px;
+    font-weight: 700;
+}

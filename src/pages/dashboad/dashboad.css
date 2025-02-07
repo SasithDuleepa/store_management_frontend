@@ -1,7 +1,36 @@
+.dashboad-view-h1{
+    color: aliceblue;
+    text-align: center;
+}
+
+
+.dashboad-summery-view-div{
+    width: 100%;
+    height: 200px;
+    background-color: rgb(55, 55, 55);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+.dashboad-div-2{
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+
+
+
 
 
 .dashboad-available-stock-graph-div{
-    width: 600px;
+    width: 800px;
 }
 
 
@@ -29,6 +58,38 @@ box-shadow: 5px 5px 16px -9px rgba(0,0,0,0.44);
 .dashboad-suppliers-name, 
 .dashboad-suppliers-email,
 .dashboad-suppliers-address{
+    
+    width: 150px;
+    
+}
+
+
+
+
+
+.dashboad-customers-div{
+    width: 50%;
+    height: auto;
+    background-color: aliceblue;
+   
+}
+.dashboad-customers-heder-div{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+.dashboad-customers-details-div{
+    display: flex;
+    justify-content: space-between;
+    
+    margin: 5px;
+    -webkit-box-shadow: 5px 5px 16px -9px rgba(0,0,0,0.44);
+-moz-box-shadow: 5px 5px 16px -9px rgba(0,0,0,0.44);
+box-shadow: 5px 5px 16px -9px rgba(0,0,0,0.44);
+}
+.dashboad-customers-name, 
+.dashboad-customers-email,
+.dashboad-customers-address{
     
     width: 150px;
     
