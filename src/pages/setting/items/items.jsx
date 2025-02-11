@@ -23,10 +23,8 @@ export default function Items() {
     }
 
     //catergory
-    const Catergoryhandler = (e) =>{
-        SetItemData({...ItemData, catergory:e.target.value});
-        
-    
+    const Catergoryhandler = (id) =>{
+        SetItemData({...ItemData, catergory:id});
     }
 
     //file 
@@ -41,31 +39,24 @@ export default function Items() {
     const AddHandler = async() =>{
          const formData = new FormData();
          formData.append('item_name', ItemData.item_name);
-         formData.append('catergory_name', ItemData.catergory);
-         formData.append('file', ItemData.item_file);
+         formData.append('categoryId', ItemData.catergory);
+         formData.append('file', ItemData.item_file);         
          try {
-            console.log(formData);
             const res = await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/items`,formData,{
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
-        });
-        
+        });        
         console.log(res.data);
         if(res.status === 200){alert("Category added successfully")}
         GetAll()
 
         //reset
         SetItemData(
-            {
-                item_name:'',
+            {   item_name:'',
                 catergory:'',
                 catergory:'',
-                item_file:null,
-            }
-        )
-        
-
+                item_file:null});
          } catch (error) {
             //handle error
             if(error.response.status === 500){
@@ -239,11 +230,11 @@ useEffect(() => {
                 <div className='setting-item-add-input-div'>
                     <label className='setting-item-add-label'>Catergory :</label><br/>
                     {/* <input type='text' onChange={(e)=>Catergoryhandler(e)} value={ItemData.catergory}/> */}
-                    <select onChange={(e)=>Catergoryhandler(e)} value={ItemData.catergory}>
+                    <select onChange={(e)=>Catergoryhandler(e.target.value)} >
                         <option value="">Select Catergory</option>
                         
                         {availableCatergories.map((catergory)=>(
-                            <option value={catergory.catergory_name}>{catergory.catergory_name}</option>
+                            <option value={catergory.catergory_id}>{catergory.catergory_name}</option>
                         ))}
                     </select>
                 </div>

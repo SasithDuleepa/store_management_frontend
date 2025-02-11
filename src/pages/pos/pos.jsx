@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Catergory from '../../components/catergory/catergory'
 import Item from '../../components/item/item'
-import Bill_item from '../../components/bill_item/bill_item'
+import BillItem from '../../components/bill_item/bill_item'
 import oncash from '../../components/icons/cash-on.png';
 import cashback from '../../components/icons/cash-back.png'
 
@@ -17,7 +17,7 @@ import cashback from '../../components/icons/cash-back.png'
 export default function Pos() {
     
 
-    //get all catergories
+    //get all categories
     const [AllCatergory, SetCatergory] = useState([]);
     const GetCatergories = async () => {
         const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}`);
@@ -248,13 +248,19 @@ const payHandler= async()=>{
 
           {/* <Bill_item itemName='eeeee' qty='3' price='44' totalprice='44' /> */}
           {bill_items.map((item, index) => (
-    <Bill_item 
+    <BillItem 
         key={index}
         itemName={item.item_name} 
         price={item.selling_price}
         qty={item.item_qty} 
         ItemQtyHandler={itemQtyHandler(item.stock_id, item.item_name, item.batch_no, item.available_qty, item.selling_price, item.expire_date, index)}
         totalprice={item.selling_price * item.item_qty}
+        delete ={ ()=>{
+            const itemArr = [...bill_items]
+            itemArr.splice(index,1);
+            setBill_items(itemArr)
+            
+        }}
        
     />
 ))}

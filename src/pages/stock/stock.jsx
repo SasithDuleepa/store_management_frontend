@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import AsyncSelect from 'react-select/async';
 import './stock.css';
 import Axios from 'axios';
 import StockItems from '../../components/stock_items/stockItems';
+import axios from 'axios';
 
 export default function Stock() {
     const[buttondiv,setButtondiv]= useState('stock-update-delete-deactive')
@@ -20,7 +22,7 @@ export default function Stock() {
         exp_date:"",
         location:"",
         available_qty:"",
-        supplier:'',
+        supplier_id:'',
         date:""
     
     });
@@ -30,13 +32,51 @@ export default function Stock() {
     
     }
 //get vendors
+const supplierOptions = [];
+const [supplierSelectedOption, setSupplierSelectedOption] = useState(null);
+
+const GetSuppliers = async(selected) =>{
+console.log(selected)
+setData({...data, supplier:selected.value})
+}
+const SupplierSelect = async(e) =>{
+    console.log(e)
+    const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/vendor/search/${e}`)
+console.log(res)
+const option = res.data.map((name)=>({
+    value: name.vendor_id,
+    label:name.vendor_name
+}))
+return option;
+}
+
+
 const[vendors, setVendors] = React.useState([]);
 const GetVendors =async () => {
     const res = await Axios.get(`${process.env.REACT_APP_BACKEND_URL}/vendor/all`);
     console.log(res.data);
+    const Data = res.data;
     setVendors(res.data);
 
+    // eslint-disable-next-line array-callback-return
+    Data.map((vendor)=>{
+        supplierOptions.push({value:vendor.vendor_id, label:vendor.vendor_name})
+    })
+
 }
+
+
+
+
+const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+  ];
+
+
+
+
 
     //get catergories
     const[catergories, setCatergories] = React.useState([]);
@@ -205,17 +245,18 @@ const searchHandler = async (e) => {
         <div className='stock-input-div'>
             <label className='stock-input-label'>Supplier Name:</label>
             {/* <input className='stock-input'  type="text" id='supplier' onChange={(e)=>changeHandler(e)} value={data.supplier}  /> */}
-            <select  className='stock-input'  id='supplier' onChange={(e)=>changeHandler(e)}>
-                <option value="">select Supplier</option>
-                {vendors.map((item) => (
-                    <option value={item.vendor_name}>{item.vendor_name }</option>
-                ))}
-            </select>
+            <AsyncSelect
+        value={supplierSelectedOption}
+        onChange={GetSuppliers}
+        loadOptions={SupplierSelect}
+        // options={options}
+      />
+
         </div>
 
         <div className='stock-input-div'>
             <label className='stock-input-label'>Date:</label>
-            <input className='stock-input'  type="text" id='date' onChange={(e)=>changeHandler(e)} value={data.date}  />
+            <input className='stock-input'  type="date" id='date' onChange={(e)=>changeHandler(e)} value={data.date}  />
         </div>
 
 
@@ -223,7 +264,7 @@ const searchHandler = async (e) => {
             <label className='stock-input-label'>Catergory:</label>
             {/* <input type="text" id='catergory' onChange={(e)=>changeHandler(e)} value={data.catergory}/> */}
             <select  className='stock-input'  id='catergory' onChange={(e)=>changeHandler(e)}>
-                <option value="">select catergory</option>
+                <option value="">select category</option>
                 {catergories.map((item) => (
                     <option value={item.catergory_name}>{item.catergory_name}</option>
                 ))}
